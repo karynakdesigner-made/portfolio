@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 
 type NavItem = { id: string; label: string };
 
@@ -75,7 +76,7 @@ export function CaseStudySidebar({ items = DEFAULT_ITEMS }: { items?: NavItem[] 
   return (
     <>
       <aside className="sticky top-0 z-40 hidden h-screen w-[240px] shrink-0 flex-col bg-white py-8 pl-12 pr-6 lg:flex">
-        <a
+        <Link
           href="/"
           className="mb-12 inline-flex w-fit items-center gap-2 text-[16px] font-semibold text-[#181212] underline-offset-4 transition-colors hover:underline"
         >
@@ -94,7 +95,7 @@ export function CaseStudySidebar({ items = DEFAULT_ITEMS }: { items?: NavItem[] 
             <polyline points="11,5 4,12 11,19" />
           </svg>
           <span>Back</span>
-        </a>
+        </Link>
         <nav className="flex flex-col gap-3 text-[16px]">
           {items.map((item) => {
             const isActive = activeId === item.id;

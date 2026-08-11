@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { CaseStudySidebar } from "@/components/CaseStudySidebar";
 import { GepWelcomeHero } from "@/components/GepWelcomeHero";
 import { Tilt3D } from "@/components/Tilt3D";
+import Link from "next/link";
 
 /* ─────────────────────────────────────────────────────────────
  * Studio Playground showcase — cycles through 4 stages:
@@ -16,8 +17,15 @@ import { Tilt3D } from "@/components/Tilt3D";
 
 function TypewriterText({ text, speed = 50 }: { text: string; speed?: number }) {
   const [displayed, setDisplayed] = useState("");
-  useEffect(() => {
+  /* Clear during render rather than from inside the effect: a new line
+     of text has to start empty, and doing it here drops the extra
+     render pass that showed a frame of the previous line. */
+  const [renderedFor, setRenderedFor] = useState(text);
+  if (renderedFor !== text) {
+    setRenderedFor(text);
     setDisplayed("");
+  }
+  useEffect(() => {
     let i = 0;
     const interval = setInterval(() => {
       if (i <= text.length) {
@@ -51,7 +59,7 @@ const USER_QUESTION = "Help me set up a Python client for the generative API";
 /* AI response — appears line by line. Each entry is one rendered row.
    Mix of text rows and code rows, in the order they animate in. */
 const AI_RESPONSE_LINES: { type: "text" | "code" | "blank"; content?: string }[] = [
-  { type: "text", content: "Here's a starter for your Python client. The Generative Engine exposes an OpenAI-compatible endpoint:" },
+  { type: "text", content: "Here's a starter for your Python client. The Gen AI Engineering Platform exposes an OpenAI-compatible endpoint:" },
   { type: "blank" },
   { type: "code", content: "import os" },
   { type: "code", content: "from openai import OpenAI" },
@@ -407,16 +415,39 @@ function Surface({
 }
 
 /* ───── Generic step carousel — large preview on top, clickable thumbnails
-   below. Click any thumbnail to focus that screen as the large preview;
-   active thumb gets a Capgemini-cyan ring; crossfade between previews.
+   below. Hovering the hero reveals prev/next arrows; clicking the left or
+   right half of the hero steps through the sequence like a carousel.
+   Thumbnails still jump straight to a given step; active thumb gets a
+   Capgemini-cyan ring; crossfade between previews.
    Used by Create Agent and Studio Management sections. */
 type CarouselStep = { src: string; caption: string; alt: string };
+
+function CarouselArrowIcon({ direction }: { direction: "left" | "right" }) {
+  return (
+    <svg
+      aria-hidden
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <polyline points={direction === "left" ? "15 18 9 12 15 6" : "9 18 15 12 9 6"} />
+    </svg>
+  );
+}
 
 function StepCarousel({ steps }: { steps: readonly CarouselStep[] }) {
   const [activeIdx, setActiveIdx] = useState(0);
   const active = steps[activeIdx];
   // Map step count to a 2-/3-col Tailwind class for the thumb strip.
   const gridCols = steps.length === 2 ? "grid-cols-2" : "grid-cols-3";
+
+  const goPrev = () => setActiveIdx((i) => (i - 1 + steps.length) % steps.length);
+  const goNext = () => setActiveIdx((i) => (i + 1) % steps.length);
 
   return (
     <div className="flex w-full flex-col gap-8">
@@ -426,7 +457,7 @@ function StepCarousel({ steps }: { steps: readonly CarouselStep[] }) {
           subtle 3D hover (main visual only — thumbnails stay flat). */}
       <div className="relative w-full overflow-hidden rounded-[24px] bg-[#f8f8f8] p-4 sm:p-8 lg:p-12">
         <Tilt3D className="w-full">
-          <div className="relative w-full overflow-hidden rounded-[12px] aspect-[5760/4096]">
+          <div className="group/hero relative w-full overflow-hidden rounded-[12px] aspect-[5760/4096]">
             <AnimatePresence initial={false}>
               <motion.img
                 key={active.src}
@@ -442,6 +473,34 @@ function StepCarousel({ steps }: { steps: readonly CarouselStep[] }) {
                 }}
               />
             </AnimatePresence>
+
+            {steps.length > 1 && (
+              <>
+                {/* Left half — click to go to the previous step */}
+                <button
+                  type="button"
+                  onClick={goPrev}
+                  aria-label="Previous step"
+                  className="absolute inset-y-0 left-0 flex w-1/2 items-center justify-start pl-4 opacity-0 outline-none transition-opacity duration-300 group-hover/hero:opacity-100 focus-visible:opacity-100 sm:pl-6"
+                >
+                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-[#181212] shadow-[0_8px_24px_-8px_rgba(0,0,0,0.35)] transition-transform duration-200 hover:scale-110">
+                    <CarouselArrowIcon direction="left" />
+                  </span>
+                </button>
+
+                {/* Right half — click to go to the next step */}
+                <button
+                  type="button"
+                  onClick={goNext}
+                  aria-label="Next step"
+                  className="absolute inset-y-0 right-0 flex w-1/2 items-center justify-end pr-4 opacity-0 outline-none transition-opacity duration-300 group-hover/hero:opacity-100 focus-visible:opacity-100 sm:pr-6"
+                >
+                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-[#181212] shadow-[0_8px_24px_-8px_rgba(0,0,0,0.35)] transition-transform duration-200 hover:scale-110">
+                    <CarouselArrowIcon direction="right" />
+                  </span>
+                </button>
+              </>
+            )}
           </div>
         </Tilt3D>
       </div>
@@ -531,13 +590,13 @@ const STUDIO_MGMT_STEPS: readonly CarouselStep[] = [
   },
 ];
 
-export default function GenerativeEngineCaseStudy() {
+export default function GenAiEngineeringCaseStudy() {
   return (
     <div className="flex">
       <CaseStudySidebar />
       <main className="min-w-0 flex-1 px-5 pt-6 sm:px-8 lg:px-16 lg:pt-8">
       {/* Mobile back link — shown only when the sidebar is hidden */}
-      <a
+      <Link
         href="/"
         className="mb-6 inline-flex w-fit items-center gap-2 text-[15px] font-semibold text-[#181212] underline-offset-4 transition-colors hover:underline lg:hidden"
       >
@@ -546,7 +605,7 @@ export default function GenerativeEngineCaseStudy() {
           <polyline points="11,5 4,12 11,19" />
         </svg>
         <span>Back</span>
-      </a>
+      </Link>
 
       {/* BLOCK 1 — HERO */}
       <motion.section
@@ -563,7 +622,7 @@ export default function GenerativeEngineCaseStudy() {
             transition={{ duration: 1.1, ease: EASE }}
             className="max-w-[1100px] text-balance text-[34px] font-semibold leading-[1.1] text-[#181212] sm:text-[48px] sm:leading-[1.05] lg:text-[64px]"
           >
-            Generative Engine Platform
+            Gen AI Engineering Platform
           </motion.h1>
           <motion.p
             variants={fadeUp}
@@ -577,9 +636,9 @@ export default function GenerativeEngineCaseStudy() {
             transition={{ duration: 0.85, ease: EASE }}
             className="max-w-[720px] text-[18px] leading-[1.5] text-[#4a4a4a]"
           >
-            How I led the UX transformation of Capgemini&apos;s Generative
-            Engine Platform — from engineer&apos;s tool to platform anyone can
-            use.
+            How I led the UX transformation of Capgemini&apos;s Gen AI
+            Engineering Platform — from engineer&apos;s tool to platform anyone
+            can use.
           </motion.p>
         </div>
 
@@ -592,12 +651,12 @@ export default function GenerativeEngineCaseStudy() {
           <div className="flex flex-col gap-2">
             <dt className="text-[14px] text-[#6b6b6b]">Product</dt>
             <dd className="text-[18px] text-[#181212]">
-              Generative Engine Platform
+              Gen AI Engineering Platform
             </dd>
           </div>
           <div className="flex flex-col gap-2">
             <dt className="text-[14px] text-[#6b6b6b]">Role</dt>
-            <dd className="text-[18px] text-[#181212]">Lead UX Designer</dd>
+            <dd className="text-[18px] text-[#181212]">Lead User Experience Designer</dd>
           </div>
           <div className="flex flex-col gap-2">
             <dt className="text-[14px] text-[#6b6b6b]">Timeline</dt>
@@ -649,7 +708,7 @@ export default function GenerativeEngineCaseStudy() {
           },
           {
             num: "Sole",
-            title: "UX Designer",
+            title: "Product Designer",
             description:
               "Embedded with product and engineering, owning research, design, and design systems end-to-end.",
           },
@@ -708,18 +767,53 @@ export default function GenerativeEngineCaseStudy() {
         >
           Context
         </motion.h2>
-        <motion.p
+        <motion.div
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-10%" }}
-          variants={fadeUp}
-          transition={{ duration: 0.9, ease: EASE, delay: 0.1 }}
-          className="text-[18px] leading-[1.5] text-[#211B1C]"
+          transition={{ staggerChildren: 0.12 }}
+          className="flex flex-col gap-20"
         >
-          Capgemini&apos;s Generative Engine started as an internal tool for
-          engineers experimenting with LLMs. The redesign had to make it usable
-          for 300,000+ employees doing real work — without engineering help.
-        </motion.p>
+          <motion.p
+            variants={fadeUp}
+            transition={{ duration: 0.9, ease: EASE }}
+            className="text-[18px] leading-[1.5] text-[#211B1C]"
+          >
+            Capgemini&apos;s Gen AI Engineering Platform started as an internal tool for
+            engineers experimenting with LLMs. The redesign had to make it usable
+            for 300,000+ employees doing real work — without engineering help.
+          </motion.p>
+
+          {/* Personas */}
+          <motion.figure
+            variants={fadeUp}
+            transition={{ duration: 0.9, ease: EASE }}
+            className="flex w-full flex-col gap-5"
+          >
+            <figcaption className="text-[15px] italic text-[#6b6b6b]">
+              These personas guided our decisions throughout the redesign — from the non-technical
+              employee opening the tool for the first time to the engineer who built it.
+            </figcaption>
+            <div className="relative w-full overflow-hidden rounded-[24px] bg-[#f8f8f8] p-4 sm:p-8 lg:p-12">
+              <Tilt3D className="w-full">
+                {/* Keyline drawn here rather than baked into the export. The
+                    previous JPG carried its own border at a ~4px effective
+                    radius, which rounded-[12px] clipped straight through —
+                    breaking the line at all four corners. This export is
+                    edge-to-edge white, so CSS owns the border and the radius
+                    and the arcs stay closed at any render width. */}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="/figma/Personas.jpg"
+                  alt="User personas developed for the Gen AI Engineering Platform redesign, covering the range of technical and non-technical employees the platform needed to serve."
+                  className="block h-auto w-full rounded-[12px] border border-[#D9D9D9]"
+                />
+              </Tilt3D>
+            </div>
+          </motion.figure>
+        </motion.div>
       </section>
 
       {/* BLOCK 4 — MY ROLE */}
@@ -742,7 +836,7 @@ export default function GenerativeEngineCaseStudy() {
           transition={{ duration: 0.9, ease: EASE, delay: 0.1 }}
           className="text-[18px] leading-[1.5] text-[#211B1C]"
         >
-          Sole UX designer, embedded with product and engineering. End-to-end
+          Sole Product Designer, embedded with product and engineering. End-to-end
           ownership across research, IA, interaction, visual design, and the
           design system. I wrote the component documentation myself.
         </motion.p>
@@ -888,6 +982,29 @@ export default function GenerativeEngineCaseStudy() {
             ))}
           </motion.div>
 
+          {/* Card sorting exercise — full content width */}
+          <motion.figure
+            variants={fadeUp}
+            transition={{ duration: 0.9, ease: EASE }}
+            className="flex w-full flex-col gap-5"
+          >
+            <figcaption className="text-[15px] italic text-[#6b6b6b]">
+              A card sorting exercise with employees across the organization — used to validate
+              how non-technical users expected the platform&apos;s features to be grouped and named.
+            </figcaption>
+            <div className="relative w-full overflow-hidden rounded-[24px] bg-[#f8f8f8] p-4 sm:p-8 lg:p-12">
+              <Tilt3D className="w-full">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="/figma/GEP Card Sorting.jpg"
+                  alt="Card sorting exercise results — participants grouping Gen AI Engineering Platform features and terminology into categories that matched their mental model."
+                  className="block h-auto w-full rounded-[12px]"
+                />
+              </Tilt3D>
+            </div>
+          </motion.figure>
         </motion.div>
       </section>
 
@@ -1047,7 +1164,7 @@ export default function GenerativeEngineCaseStudy() {
           <p className="text-[16px] italic leading-[1.5] text-[#4a4a4a]">
             A small slice — <span className="font-semibold text-[#181212]">1,750+ components</span> live in the design system in total.
           </p>
-          <div className="w-full rounded-[24px] bg-[#f8f8f8] p-6 sm:p-12">
+          <div className="w-full rounded-[24px] bg-[#080d1f] p-6 sm:p-12">
             <div className="grid w-full grid-cols-2 gap-5 sm:gap-8 lg:grid-cols-4">
               {[
                 { src: "/figma/ds-button.webp", caption: "Button", alt: "Button component spec — Primary, Secondary, Outline, Ghost, Destructive variants across Regular / Large / Small / Mini sizes and Default / Hover & Active / Focus / Disabled states." },
@@ -1064,7 +1181,7 @@ export default function GenerativeEngineCaseStudy() {
                     alt={c.alt}
                     className="block h-auto w-full rounded-[8px]"
                   />
-                  <figcaption className="text-center text-[15px] italic text-[#6b6b6b]">
+                  <figcaption className="text-center text-[15px] italic text-white">
                     {c.caption}
                   </figcaption>
                 </figure>
@@ -1085,7 +1202,7 @@ export default function GenerativeEngineCaseStudy() {
           <p className="text-[15px] italic text-[#6b6b6b]">
             Component documentation, written alongside the design.
           </p>
-          <div className="w-full rounded-[24px] bg-[#f8f8f8] p-6 sm:p-12">
+          <div className="w-full rounded-[24px] bg-[#080d1f] p-6 sm:p-12">
             <div className="grid w-full grid-cols-1 gap-8 sm:grid-cols-2">
               {[
                 { src: "/figma/ds-chat-input.webp", caption: "Chat Input — states", alt: "Chat Input component spec — Default, Incognito, Active, Image, Files, Multiple Images, and Offline states stacked vertically." },
@@ -1100,7 +1217,7 @@ export default function GenerativeEngineCaseStudy() {
                     alt={c.alt}
                     className="block h-auto w-full rounded-[8px]"
                   />
-                  <figcaption className="text-center text-[15px] italic text-[#6b6b6b]">
+                  <figcaption className="text-center text-[15px] italic text-white">
                     {c.caption}
                   </figcaption>
                 </figure>
@@ -1145,7 +1262,7 @@ export default function GenerativeEngineCaseStudy() {
 
       {/* Bottom page-to-page nav, matches NYT case study's simple Home/Next style */}
       <nav className="mt-12 flex items-center justify-between gap-8 pb-[80px] text-[16px] lg:mt-[100px]">
-        <a
+        <Link
           href="/"
           className="inline-flex items-center gap-2 font-semibold text-[#181212] underline-offset-4 transition-colors hover:underline"
         >
@@ -1164,8 +1281,8 @@ export default function GenerativeEngineCaseStudy() {
             <polyline points="11,5 4,12 11,19" />
           </svg>
           <span>Home</span>
-        </a>
-        <a
+        </Link>
+        <Link
           href="/case-studies/nyt-games"
           className="inline-flex items-center gap-2 font-semibold text-[#181212] underline-offset-4 transition-colors hover:underline"
         >
@@ -1184,7 +1301,7 @@ export default function GenerativeEngineCaseStudy() {
             <line x1="4" y1="12" x2="20" y2="12" />
             <polyline points="13,5 20,12 13,19" />
           </svg>
-        </a>
+        </Link>
       </nav>
       </main>
     </div>

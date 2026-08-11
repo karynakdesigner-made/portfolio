@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform, useMotionTemplate } from "motion/react";
 import { Sidebar } from "@/components/Sidebar";
 import { Hero } from "@/components/Hero";
+import Link from "next/link";
 
 /* True only at lg+ (≥1024px). Starts false (mobile-first) to avoid hydration
    mismatch, then resolves on mount. Used to gate the sticky-stack animation —
@@ -50,13 +51,20 @@ const testimonialReveal = {
 
 
 
+/* Client-side navigation for the case-study cards. motion.a rendered a
+   plain anchor, so every card click was a full document load — new JS,
+   lost scroll position. Created once at module scope: motion.create()
+   builds a component type, and calling it in render would remount the
+   card on every frame. */
+const MotionLink = motion.create(Link);
+
 /* ─── Case study card artwork — single composite image per case study ─── */
 
-function GenerativeEngineVisual() {
+function GenAiEngineeringVisual() {
   return (
-    <motion.a
+    <MotionLink
       href="/case-studies/generative-engine"
-      aria-label="Generative Engine Platform case study"
+      aria-label="Gen AI Engineering Platform case study"
       variants={cardReveal}
       transition={{ duration: 0.7, ease: EASE }}
       className="group relative block w-full max-w-[560px] overflow-hidden transition-transform duration-300 ease-out hover:-translate-y-1"
@@ -64,16 +72,16 @@ function GenerativeEngineVisual() {
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src="/figma/case-gep-card.png"
-        alt="Generative Engine Platform — Capgemini's internal platform, shown as a row of AI provider logos above a Studio Management screenshot with a lavender folder caption."
+        alt="Gen AI Engineering Platform — Capgemini's internal platform, shown as a row of AI provider logos above a Studio Management screenshot with a lavender folder caption."
         className="block h-auto w-full"
       />
-    </motion.a>
+    </MotionLink>
   );
 }
 
 function NytGamesVisual() {
   return (
-    <motion.a
+    <MotionLink
       href="/case-studies/nyt-games"
       aria-label="NYT Games App case study"
       variants={cardReveal}
@@ -86,13 +94,13 @@ function NytGamesVisual() {
         alt="NYT Games App — collage of game icons (Crossword, Wordle, Connections, Spelling Bee, Letter Boxed) with the iPhone home screen and a yellow folder caption."
         className="block h-auto w-full"
       />
-    </motion.a>
+    </MotionLink>
   );
 }
 
 function VestigeVisual() {
   return (
-    <motion.a
+    <MotionLink
       href="/case-studies/vestige"
       aria-label="Vestige case study"
       variants={cardReveal}
@@ -105,13 +113,13 @@ function VestigeVisual() {
         alt="Vestige — three iPhone screens showing the taste summary, the camera viewfinder pointed at a Van Gogh self-portrait, and an artwork story page, with a peach folder caption reading 'Point at any artwork. A story in the moment. A collection that grows. A taste map that sharpens.'"
         className="block h-auto w-full"
       />
-    </motion.a>
+    </MotionLink>
   );
 }
 
 function KpiPlatformVisual() {
   return (
-    <motion.a
+    <MotionLink
       href="/case-studies/kpi-platform"
       aria-label="KPI Platform case study"
       variants={cardReveal}
@@ -124,7 +132,7 @@ function KpiPlatformVisual() {
         alt="KPI Platform — On Time Delivery dashboard on a desktop monitor with monthly and daily delivery charts, and a grey caption card reading 'One platform, whole company. Metrics by level. Access by group. Clarity for everyone.'"
         className="block h-auto w-full"
       />
-    </motion.a>
+    </MotionLink>
   );
 }
 
@@ -143,17 +151,17 @@ type CaseStudy = {
 const CASE_STUDIES: CaseStudy[] = [
   {
     year: "Web Application",
-    title: "Generative Engine Platform",
+    title: "Gen AI Engineering Platform",
     summary:
       "An engineer-built tool, redesigned into an AI platform for the entire company.",
     meta: [
       { label: "Client", value: "Capgemini" },
-      { label: "Role", value: "Lead UX Designer" },
+      { label: "Role", value: "Lead Product Designer" },
       { label: "Duration", value: "Q2 2025 – Q2 2026" },
       { label: "Status", value: "Shipped" },
     ],
     href: "/case-studies/generative-engine",
-    visual: <GenerativeEngineVisual />,
+    visual: <GenAiEngineeringVisual />,
   },
   {
     year: "Mobile App",
@@ -162,12 +170,26 @@ const CASE_STUDIES: CaseStudy[] = [
       "Improving the experience behind The Crossword, Spelling Bee, and the full NYT Games suite — onboarding experiments, social features, and accessibility at scale. 2024 Apple Design Award finalist.",
     meta: [
       { label: "Client", value: "The New York Times" },
-      { label: "Role", value: "Senior UX Designer" },
+      { label: "Role", value: "Senior Product Designer" },
       { label: "Duration", value: "2022 – 2023" },
       { label: "Status", value: "Shipped" },
     ],
     href: "/case-studies/nyt-games",
     visual: <NytGamesVisual />,
+  },
+  {
+    year: "Web Application",
+    title: "KPI Platform",
+    summary:
+      "From scattered spreadsheets to a single source of truth — a branded, accessible analytics platform unifying every KPI in one interactive view.",
+    meta: [
+      { label: "Client", value: "Top global nuclear operator" },
+      { label: "Role", value: "Lead Product Designer" },
+      { label: "Duration", value: "Q1–Q2 2025" },
+      { label: "Status", value: "Shipped" },
+    ],
+    href: "/case-studies/kpi-platform",
+    visual: <KpiPlatformVisual />,
   },
   {
     year: "Mobile App",
@@ -183,21 +205,6 @@ const CASE_STUDIES: CaseStudy[] = [
     href: "/case-studies/vestige",
     comingSoon: true,
     visual: <VestigeVisual />,
-  },
-  {
-    year: "Web Application",
-    title: "KPI Platform",
-    summary:
-      "From scattered spreadsheets to a single source of truth — a branded, accessible analytics platform unifying every KPI in one interactive view.",
-    meta: [
-      { label: "Client", value: "Top global nuclear operator" },
-      { label: "Role", value: "Lead UX Designer" },
-      { label: "Duration", value: "Q1–Q2 2025" },
-      { label: "Status", value: "Shipped" },
-    ],
-    href: "/case-studies/kpi-platform",
-    comingSoon: true,
-    visual: <KpiPlatformVisual />,
   },
 ];
 
@@ -252,7 +259,7 @@ function Spread({
             <span className="whitespace-nowrap">Coming soon</span>
           </button>
         ) : (
-          <a
+          <Link
             href={href}
             className="group mt-10 inline-flex w-fit items-center gap-1.5 rounded-full border-2 border-[#181212] bg-white px-7 py-3 text-[16px] font-semibold text-[#211B1C] transition-colors duration-200 ease-out hover:bg-[#181212] hover:text-white"
           >
@@ -260,7 +267,7 @@ function Spread({
             <span className="inline-flex items-center transition-transform duration-300 ease-out group-hover:translate-x-1">
               <ArrowRight size={18} />
             </span>
-          </a>
+          </Link>
         )}
       </motion.div>
 
@@ -449,7 +456,7 @@ function About() {
         className="flex flex-col gap-4 text-[16px] leading-[1.5] text-[#211B1C] sm:text-[18px]"
       >
         <p>
-          I&apos;m a senior UX designer with{" "}
+          I&apos;m a senior Product Designer with{" "}
           <span className="font-semibold">eight years</span> spent shipping
           complex products across{" "}
           <span className="font-semibold">
@@ -516,14 +523,20 @@ function Experience() {
       <h2 className="text-[18px] font-semibold leading-[1.3] text-[#181212] sm:text-[22px]">Experience</h2>
       <div className="flex flex-col gap-10">
         <ExperienceItem
-          period="2020 – Now"
-          title="Senior User Experience Designer"
+          period="2021 – Now"
+          title="Senior UX Designer"
+          company="Capgemini Engineering"
+          companyHref="https://www.capgemini.com/"
+        />
+        <ExperienceItem
+          period="2020 – 2021"
+          title="UX Designer"
           company="Capgemini Engineering"
           companyHref="https://www.capgemini.com/"
         />
         <ExperienceItem
           period="2019 – 2020"
-          title="User Experience Designer"
+          title="UX Designer"
           company="GlobalDev (former Steelkiwi)"
           companyHref="https://globaldev.tech/blog/steelkiwi-to-join-globaldev-group"
         />
@@ -703,14 +716,14 @@ export default function Home() {
       <Sidebar />
       <main id="top" className="min-w-0 flex-1 px-5 pt-6 sm:px-8 lg:px-16 lg:pt-8">
         {/* Mobile logo header — shown only when the sidebar is hidden */}
-        <a
+        <Link
           href="/"
           style={{ fontFamily: "var(--font-patience), serif" }}
           className="mb-6 block text-[26px] leading-none text-[#181212] lg:hidden"
           aria-label="Karina Kravchenko"
         >
           Karina Kravchenko
-        </a>
+        </Link>
         <div className="flex min-h-[calc(100vh-64px)] flex-col justify-between">
           <section id="intro"><Hero /></section>
           <section id="references"><References /></section>

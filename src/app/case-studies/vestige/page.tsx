@@ -2,11 +2,12 @@
 
 import { motion } from "motion/react";
 import { CaseStudySidebar } from "@/components/CaseStudySidebar";
+import Link from "next/link";
 
 /* ─────────────────────────────────────────────────────────────
  * Vestige — Case Study
  * Uses the same layout, sidebar, type, and color palette as the
- * NYT Games and Generative Engine case studies and the main page.
+ * NYT Games and Gen AI Engineering Platform case studies and the main page.
  *   - Body font: Mosvita (inherited)
  *   - Colors: #181212, #211B1C, #4a4a4a, #6b6b6b, #ececec, #f8f8f8
  *   - Section sizes: label 18/22px / body 18px / meta 14–18px
@@ -230,7 +231,7 @@ export default function VestigeCaseStudy() {
       <CaseStudySidebar items={VESTIGE_NAV} />
       <main className="min-w-0 flex-1 px-5 pt-6 sm:px-8 lg:px-16 lg:pt-8">
         {/* Mobile back link — shown only when the sidebar is hidden */}
-        <a
+        <Link
           href="/"
           className="mb-6 inline-flex w-fit items-center gap-2 text-[15px] font-semibold text-[#181212] underline-offset-4 transition-colors hover:underline lg:hidden"
         >
@@ -239,7 +240,7 @@ export default function VestigeCaseStudy() {
             <polyline points="11,5 4,12 11,19" />
           </svg>
           <span>Back</span>
-        </a>
+        </Link>
 
         {/* ─── HERO ─── */}
         <motion.section
@@ -290,7 +291,7 @@ export default function VestigeCaseStudy() {
               </dd>
             </div>
             <div className="flex flex-col gap-2">
-              <dt className="text-[14px] text-[#6b6b6b]">Duration</dt>
+              <dt className="text-[14px] text-[#6b6b6b]">Timeline</dt>
               <dd className="text-[18px] text-[#181212]">2024 — ongoing</dd>
             </div>
             <div className="flex flex-col gap-2">
@@ -794,7 +795,7 @@ export default function VestigeCaseStudy() {
 
         {/* Bottom page-to-page nav — matches NYT Games */}
         <nav className="mt-12 lg:mt-[100px] flex items-center justify-between gap-8 pb-[80px] text-[16px]">
-          <a
+          <Link
             href="/"
             className="inline-flex items-center gap-2 font-semibold text-[#181212] underline-offset-4 transition-colors hover:underline"
           >
@@ -813,8 +814,8 @@ export default function VestigeCaseStudy() {
               <polyline points="11,5 4,12 11,19" />
             </svg>
             <span>Home</span>
-          </a>
-          <a
+          </Link>
+          <Link
             href="/case-studies/nyt-games"
             className="inline-flex items-center gap-2 font-semibold text-[#181212] underline-offset-4 transition-colors hover:underline"
           >
@@ -833,7 +834,7 @@ export default function VestigeCaseStudy() {
               <line x1="4" y1="12" x2="20" y2="12" />
               <polyline points="13,5 20,12 13,19" />
             </svg>
-          </a>
+          </Link>
         </nav>
       </main>
     </div>

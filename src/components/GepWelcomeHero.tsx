@@ -235,7 +235,7 @@ export function GepWelcomeHero() {
               className="absolute whitespace-nowrap"
               style={{ top: "40.82%", left: "4.58%", fontSize: "6.67cqw", lineHeight: 1.05 }}
             >
-              Generative Engine
+              Gen AI Engineering
             </motion.p>
             <motion.p
               variants={item}

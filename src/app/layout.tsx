@@ -31,9 +31,9 @@ const patience = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Karina Kravchenko — Senior UX Designer",
+  title: "Karina Kravchenko — Senior Product Designer",
   description:
-    "Senior UX designer working on AI products, complex systems, and the interfaces in between.",
+    "Senior UX Designer working on AI products, complex systems, and the interfaces in between.",
 };
 
 export default function RootLayout({

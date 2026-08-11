@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
+import Link from "next/link";
 
 const navItems = [
   { id: "intro", label: "Intro" },
@@ -35,7 +36,7 @@ export function Sidebar() {
     <aside className="sticky top-0 z-40 hidden h-screen w-[240px] shrink-0 flex-col justify-between bg-white py-8 pl-12 pr-6 lg:flex">
       {/* Top: logo + nav */}
       <div className="flex flex-col gap-12">
-        <a
+        <Link
           href="/"
           style={{ fontFamily: "var(--font-patience), serif" }}
           className="text-[28px] font-normal leading-[1.15] text-[#181212]"
@@ -59,7 +60,7 @@ export function Sidebar() {
           >
             Kravchenko
           </motion.span>
-        </a>
+        </Link>
         <nav className="flex flex-col gap-3 text-[16px]">
           {navItems.map((item) => {
             const isActive = activeId === item.id;

@@ -3,11 +3,12 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { CaseStudySidebar } from "@/components/CaseStudySidebar";
+import Link from "next/link";
 
 /* ─────────────────────────────────────────────────────────────
  * NYT Games App — Case Study
  * Uses the same layout, sidebar, type, and color palette as the
- * Generative Engine case study and the main page.
+ * Gen AI Engineering Platform case study and the main page.
  *   - Body font: Mosvita (inherited)
  *   - Colors: #181212, #211B1C, #4a4a4a, #6b6b6b, #ececec, #f8f8f8, #faf7f0
  *   - Section sizes: heading 28px / body 18px / meta 14–18px
@@ -35,7 +36,7 @@ const NYT_NAV = [
   { id: "recognition", label: "Recognition" },
 ];
 
-/* ───────── Reusable bits (match Generative Engine page) ───────── */
+/* ───────── Reusable bits (match Gen AI Engineering Platform page) ───────── */
 
 function PlaceholderBox({
   id,
@@ -208,6 +209,26 @@ const AB_COLORS = {
 
 /** Largest metric value — bars scale against this so they use the full height. */
 const AB_MAX = Math.max(...AB_METRICS.flatMap((m) => [m.a, m.b]));
+
+/* Reset arrow — currentColor so it picks up the button's hover transition. */
+function ResetIcon() {
+  return (
+    <svg
+      width="13"
+      height="13"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+    >
+      <path d="M3 12a9 9 0 1 1 3 6.7" />
+      <polyline points="3 21 3 15 9 15" />
+    </svg>
+  );
+}
 
 /* Small medal mark — replaces the emoji trophy, matches the page's stroke icons */
 function MedalIcon({ color }: { color: string }) {
@@ -415,12 +436,16 @@ function NYTABTestShowcase() {
 
           {/* Chart — scaffold is always present; bars fill on reveal, and a
               frosted CTA sits over the empty state so the panel never jumps. */}
-          <div className="relative mt-4">
-            <div className="flex h-[128px] items-end justify-around gap-4 border-b border-[#ececec]">
+          {/* Sits low in the panel on purpose. The footer below reserves room
+              for the winner banner, so anchoring the chart high left the CTA
+              landing straight on the metric labels — the extra top margin and
+              the wider bar-to-label gap give the overlay somewhere to be. */}
+          <div className="relative mt-10">
+            <div className="flex h-[136px] items-end justify-around gap-4 border-b border-[#ececec]">
               {AB_METRICS.map((m, i) => (
                 <div
                   key={m.name}
-                  className="flex flex-1 flex-col items-center gap-2.5"
+                  className="flex flex-1 flex-col items-center gap-4"
                 >
                   <div className="flex h-[100px] items-end gap-2">
                     {(["a", "b"] as const).map((key, j) => {
@@ -476,7 +501,10 @@ function NYTABTestShowcase() {
                   initial={false}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.4, ease: EASE }}
-                  className="absolute inset-x-0 -top-1 bottom-6 flex flex-col items-center justify-center gap-3 rounded-[8px] bg-white/55 pt-10 backdrop-blur-[2px]"
+                  /* bottom clears the label row (gap + line) so the CTA centres
+                     over the bars alone; no top padding, which is what used to
+                     shove it down onto the labels. */
+                  className="absolute inset-x-0 -top-1 bottom-[34px] flex flex-col items-center justify-center gap-3 rounded-[8px] bg-white/55 backdrop-blur-[2px]"
                 >
                   <p className="text-[13px] text-[#6b6b6b]">
                     See how the variants performed
@@ -503,7 +531,12 @@ function NYTABTestShowcase() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.4, ease: EASE }}
-                  className="flex items-center gap-2.5 rounded-[10px] border-l-2 bg-[#f8f8f8] py-2 pl-3 pr-4"
+                  /* Left edge is deliberately square. With a radius on all
+                     four corners the accent followed the curve and pulled
+                     away from the top and bottom, reading as a smudge rather
+                     than a rule — squaring that one edge lets it run the full
+                     height of the banner. */
+                  className="flex items-center gap-3 rounded-r-[10px] border-l-[3px] bg-[#f8f8f8] py-2.5 pl-3.5 pr-4"
                   style={{ borderColor: AB_COLORS.A.dark }}
                 >
                   <MedalIcon color={AB_COLORS.A.dark} />
@@ -522,8 +555,9 @@ function NYTABTestShowcase() {
               <button
                 type="button"
                 onClick={reset}
-                className="ml-auto shrink-0 rounded-full border border-[#ececec] px-3.5 py-1.5 text-[12px] font-medium text-[#6b6b6b] transition-colors duration-200 hover:bg-[#f8f8f8] hover:text-[#181212]"
+                className="ml-auto flex shrink-0 items-center gap-1.5 rounded-full border border-[#ececec] py-1.5 pl-2.5 pr-3.5 text-[12px] font-medium text-[#6b6b6b] transition-colors duration-200 hover:bg-[#f8f8f8] hover:text-[#181212]"
               >
+                <ResetIcon />
                 Reset
               </button>
             )}
@@ -996,7 +1030,7 @@ export default function NYTGamesCaseStudy() {
       <CaseStudySidebar items={NYT_NAV} />
       <main className="min-w-0 flex-1 px-5 pt-6 sm:px-8 lg:px-16 lg:pt-8">
         {/* Mobile back link — shown only when the sidebar is hidden */}
-        <a
+        <Link
           href="/"
           className="mb-6 inline-flex w-fit items-center gap-2 text-[15px] font-semibold text-[#181212] underline-offset-4 transition-colors hover:underline lg:hidden"
         >
@@ -1005,7 +1039,7 @@ export default function NYTGamesCaseStudy() {
             <polyline points="11,5 4,12 11,19" />
           </svg>
           <span>Back</span>
-        </a>
+        </Link>
         {/* ─── HERO ─── */}
         <motion.section
           id="overview"
@@ -1034,7 +1068,7 @@ export default function NYTGamesCaseStudy() {
               transition={{ duration: 0.85, ease: EASE }}
               className="max-w-[720px] text-[18px] leading-[1.5] text-[#4a4a4a]"
             >
-              Senior UX Designer on one of the NYT&apos;s flagship products. I
+              Senior Product Designer on one of the NYT&apos;s flagship products. I
               worked within a large cross-functional team to improve the
               experience behind Wordle, Spelling Bee, Connections, and the full
               Games suite — a 2024 Apple Design Award finalist.
@@ -1056,7 +1090,7 @@ export default function NYTGamesCaseStudy() {
             <div className="flex flex-col gap-2">
               <dt className="text-[14px] text-[#6b6b6b]">Role</dt>
               <dd className="text-[18px] text-[#181212]">
-                Senior UX Designer
+                Senior Product Designer
               </dd>
             </div>
             <div className="flex flex-col gap-2">
@@ -1562,7 +1596,7 @@ export default function NYTGamesCaseStudy() {
 
         {/* Bottom page-to-page nav, matches Back link style of the case study sidebar */}
         <nav className="mt-12 lg:mt-[100px] flex items-center justify-between gap-8 pb-[80px] text-[16px]">
-          <a
+          <Link
             href="/"
             className="inline-flex items-center gap-2 font-semibold text-[#181212] underline-offset-4 transition-colors hover:underline"
           >
@@ -1581,9 +1615,9 @@ export default function NYTGamesCaseStudy() {
               <polyline points="11,5 4,12 11,19" />
             </svg>
             <span>Home</span>
-          </a>
-          <a
-            href="/case-studies/generative-engine"
+          </Link>
+          <Link
+            href="/case-studies/kpi-platform"
             className="inline-flex items-center gap-2 font-semibold text-[#181212] underline-offset-4 transition-colors hover:underline"
           >
             <span>Next case study</span>
@@ -1601,7 +1635,7 @@ export default function NYTGamesCaseStudy() {
               <line x1="4" y1="12" x2="20" y2="12" />
               <polyline points="13,5 20,12 13,19" />
             </svg>
-          </a>
+          </Link>
         </nav>
       </main>
     </div>

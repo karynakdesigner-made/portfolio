@@ -21,7 +21,7 @@ export function Hero() {
           transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
           className="max-w-[1209px] text-balance text-[34px] font-semibold leading-[1.1] text-[#181212] sm:text-[48px] sm:leading-[1.05] lg:text-[72px]"
         >
-          Senior UX designer working on AI products, complex systems, and the
+          Senior UX Designer working on AI products, complex systems, and the
           interfaces in between.
         </motion.h1>
         <motion.p

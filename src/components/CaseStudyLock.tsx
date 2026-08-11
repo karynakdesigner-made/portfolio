@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
+import Link from "next/link";
 
 /* ─────────────────────────────────────────────────────────────
  * CaseStudyLock — password gate shared by every case study.
@@ -105,7 +106,13 @@ export function CaseStudyLock({ children }: { children: React.ReactNode }) {
   const [error, setError] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
+  /* The one render pass this costs is the point of the "checking" state:
+     localStorage doesn't exist during SSR, so the unlock can only be read
+     after mount, and rendering the form before we know would flash the
+     password gate at someone who has already unlocked. Deliberate — not
+     the accidental cascade the rule is aimed at. */
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setState(
       localStorage.getItem(STORAGE_KEY) === "1" ? "unlocked" : "locked"
     );
@@ -129,7 +136,7 @@ export function CaseStudyLock({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex min-h-screen flex-col px-5 pt-6 sm:px-8 lg:px-16 lg:pt-8">
       {/* Two-line script logo — same treatment as the homepage sidebar */}
-      <a
+      <Link
         href="/"
         style={{ fontFamily: "var(--font-patience), serif" }}
         className="block w-fit text-[28px] font-normal leading-[1.15] text-[#181212]"
@@ -153,7 +160,7 @@ export function CaseStudyLock({ children }: { children: React.ReactNode }) {
         >
           Kravchenko
         </motion.span>
-      </a>
+      </Link>
 
       <motion.section
         className="mt-16 grid grid-cols-1 items-start gap-x-12 gap-y-6 sm:mt-24 lg:mt-[160px] lg:grid-cols-[1fr_2fr]"
