@@ -184,7 +184,7 @@ const CASE_STUDIES: CaseStudy[] = [
       "From scattered spreadsheets to a single source of truth — a branded, accessible analytics platform unifying every KPI in one interactive view.",
     meta: [
       { label: "Client", value: "Top global nuclear operator" },
-      { label: "Role", value: "Lead Product Designer" },
+      { label: "Role", value: "Senior User Experience Designer" },
       { label: "Duration", value: "Q1–Q2 2025" },
       { label: "Status", value: "Shipped" },
     ],
@@ -198,7 +198,7 @@ const CASE_STUDIES: CaseStudy[] = [
       "Treating art taste as a personal metric — capture flows, a taste map, and a private catalogue of what moved you. From ten interviews to a working prototype.",
     meta: [
       { label: "Ownership", value: "Personal project" },
-      { label: "Role", value: "Product Designer" },
+      { label: "Role", value: "Senior User Experience Designer" },
       { label: "Duration", value: "2026 – ongoing" },
       { label: "Status", value: "Prototype" },
     ],

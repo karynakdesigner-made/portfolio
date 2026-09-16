@@ -287,7 +287,7 @@ export default function VestigeCaseStudy() {
             <div className="flex flex-col gap-2">
               <dt className="text-[14px] text-[#6b6b6b]">Role</dt>
               <dd className="text-[18px] text-[#181212]">
-                Product Designer (research, IA, flows, UI, motion)
+                Senior User Experience Designer
               </dd>
             </div>
             <div className="flex flex-col gap-2">

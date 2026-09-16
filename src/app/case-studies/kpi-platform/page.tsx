@@ -93,7 +93,7 @@ function ImagePlaceholder({
 /* ───────── Content (verbatim — light typographic formatting only) ───────── */
 
 const META = [
-  { label: "Role", value: "Lead User Experience Designer" },
+  { label: "Role", value: "Senior User Experience Designer" },
   { label: "Timeline", value: "~5 months" },
   {
     label: "Team",
