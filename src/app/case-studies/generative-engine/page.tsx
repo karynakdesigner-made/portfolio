@@ -656,7 +656,7 @@ export default function GenAiEngineeringCaseStudy() {
           </div>
           <div className="flex flex-col gap-2">
             <dt className="text-[14px] text-[#6b6b6b]">Role</dt>
-            <dd className="text-[18px] text-[#181212]">Lead User Experience Designer</dd>
+            <dd className="text-[18px] text-[#181212]">Senior User Experience Designer</dd>
           </div>
           <div className="flex flex-col gap-2">
             <dt className="text-[14px] text-[#6b6b6b]">Timeline</dt>
@@ -692,7 +692,7 @@ export default function GenAiEngineeringCaseStudy() {
             ),
             title: "Active Users",
             description:
-              "Daily actives during my tenure — grown from an engineers-only tool into everyday use across the organization.",
+              "Grew from 300 to 10,000+ active users in 3 months — from an engineers-only tool into everyday use across the organization.",
           },
           {
             num: "20+",
@@ -1162,7 +1162,7 @@ export default function GenAiEngineeringCaseStudy() {
           className="flex w-full flex-col gap-5"
         >
           <p className="text-[16px] italic leading-[1.5] text-[#4a4a4a]">
-            A small slice — <span className="font-semibold text-[#181212]">1,750+ components</span> live in the design system in total.
+            A small slice — <span className="font-semibold text-[#181212]">1,750+ components and variants</span> live in the design system in total.
           </p>
           <div className="w-full rounded-[24px] bg-[#080d1f] p-6 sm:p-12">
             <div className="grid w-full grid-cols-2 gap-5 sm:gap-8 lg:grid-cols-4">

@@ -1071,7 +1071,7 @@ export default function NYTGamesCaseStudy() {
               Senior Product Designer on one of the NYT&apos;s flagship products. I
               worked within a large cross-functional team to improve the
               experience behind Wordle, Spelling Bee, Connections, and the full
-              Games suite — a 2024 Apple Design Award finalist.
+              Games suite — a 2024 Apple Design Award winner.
             </motion.p>
           </div>
 
@@ -1145,21 +1145,22 @@ export default function NYTGamesCaseStudy() {
               className="flex flex-col gap-8 text-[18px] leading-[1.5] text-[#211B1C]"
             >
               <p className="text-[18px] font-normal leading-[1.5] text-[#4a4a4a]">
-                I didn&apos;t own one feature — I contributed across multiple
-                problem spaces, wherever my work could have the most impact.
+                I owned the friend invite redesign, designed onboarding
+                experiments, and supported the Games Tab launch.
               </p>
               <div className="flex flex-col gap-4">
                 <InfoCard number="01" title="A/B Testing & Optimization">
-                  Led experimentation initiatives to improve onboarding and
-                  conversion, partnering with marketing and data science.
+                  Designed test variants and partnered with marketing and data
+                  science on onboarding experiments.
                 </InfoCard>
                 <InfoCard number="02" title="Social Features">
                   Redesigned the friend invite flow — cut it from 4 steps to 2
                   with contextual prompts and clearer CTAs.
                 </InfoCard>
                 <InfoCard number="03" title="Accessibility & Design System">
-                  Built accessibility into the product from the ground up and
-                  contributed to the NYT Design System.
+                  Made accessibility part of every release: dynamic type, layout
+                  scaling, and regular QA reviews. Also contributed to the NYT
+                  Design System.
                 </InfoCard>
               </div>
             </motion.div>
@@ -1209,8 +1210,8 @@ export default function NYTGamesCaseStudy() {
                 <p>
                   I ran cross-functional A/B testing to fix that —{" "}
                   <span className="font-semibold text-[#181212]">
-                    designing variants, setting success metrics, and iterating
-                    with marketing
+                    designing test variants and partnering with marketing and
+                    data science
                   </span>{" "}
                   until the experience held together from first impression to
                   first session.
@@ -1277,7 +1278,7 @@ export default function NYTGamesCaseStudy() {
               </div>
               <div className="flex flex-wrap gap-3 pt-2">
                 <Chip>Higher invite completion</Chip>
-                <Chip>All usability issues resolved</Chip>
+                <Chip>Two rounds of usability testing; key issues fixed before launch</Chip>
               </div>
             </motion.div>
           </div>
@@ -1530,7 +1531,7 @@ export default function NYTGamesCaseStudy() {
             >
               <p className="text-[18px] leading-[1.5] text-[#211B1C]">
                 Proud to have been part of the team behind a 2024 Apple Design
-                Awards finalist in Delight and Fun — an award that reflects what
+                Award winner in Delight and Fun — an award that reflects what
                 this team cared about most: craft, play, and making things feel
                 right.
               </p>
@@ -1546,7 +1547,7 @@ export default function NYTGamesCaseStudy() {
             className="flex w-full flex-col gap-5"
           >
             <FigureCaption>
-              Apple Design Awards — finalist, 2024
+              Apple Design Award — winner, 2024
             </FigureCaption>
             <div
               id="RECOGNITION-PHONES"

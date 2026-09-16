@@ -156,7 +156,7 @@ const CASE_STUDIES: CaseStudy[] = [
       "An engineer-built tool, redesigned into an AI platform for the entire company.",
     meta: [
       { label: "Client", value: "Capgemini" },
-      { label: "Role", value: "Lead Product Designer" },
+      { label: "Role", value: "Senior User Experience Designer" },
       { label: "Duration", value: "Q2 2025 – Q2 2026" },
       { label: "Status", value: "Shipped" },
     ],
@@ -167,7 +167,7 @@ const CASE_STUDIES: CaseStudy[] = [
     year: "Mobile App",
     title: "NYT Games App",
     summary:
-      "Improving the experience behind The Crossword, Spelling Bee, and the full NYT Games suite — onboarding experiments, social features, and accessibility at scale. 2024 Apple Design Award finalist.",
+      "Improving the experience behind The Crossword, Spelling Bee, and the full NYT Games suite — onboarding experiments, social features, and accessibility at scale. 2024 Apple Design Award winner (Delight and Fun).",
     meta: [
       { label: "Client", value: "The New York Times" },
       { label: "Role", value: "Senior Product Designer" },
@@ -460,7 +460,7 @@ function About() {
           <span className="font-semibold">eight years</span> spent shipping
           complex products across{" "}
           <span className="font-semibold">
-            AI, fintech, healthcare, and games
+            AI, energy, games, and enterprise tools
           </span>
           . I had the good fortune of working on the New York Times Games app,
           which won an Apple Design Award in 2024.
