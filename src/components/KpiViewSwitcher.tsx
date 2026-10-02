@@ -4,10 +4,10 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { useReducedMotion } from "motion/react";
 
 /* ─────────────────────────────────────────────────────────────
- * KPI Platform — programme-view switcher.
+ * KPI Platform - programme-view switcher.
  *
  * One dashboard, two programme views. The interface itself holds
- * still — sidebar, page title, Year/Team filters, card chrome — and
+ * still - sidebar, page title, Year/Team filters, card chrome - and
  * only the tab indicator and the charts change. Nothing about this is
  * a screenshot swap: the artboard JPG supplies the static chrome, the
  * charts are the real Figma SVG exports positioned over it, and the
@@ -59,8 +59,8 @@ const TABS = { left: 77.97, top: 3.27, width: 20.0, height: 4.09 };
 const TAB_INACTIVE_BG = "#e0e0e0";
 const TAB_UNDERLINE = "#000000";
 
-/* Everything in the control is sized in cqw — 1% of the screen's own width
-   — so it stays proportional to the dashboard at any column width. Fixed
+/* Everything in the control is sized in cqw - 1% of the screen's own width
+   - so it stays proportional to the dashboard at any column width. Fixed
    px kept the labels at full size while the artboard shrank. */
 const TAB_FONT = "0.86cqw";
 const TAB_UNDERLINE_H = "0.12cqw";
@@ -88,7 +88,7 @@ async function loadSvg(file: string) {
 
 /* Grow every bar back from the baseline. Bars are the only rects with a
    hex fill (card and label backgrounds are `fill="white"`), and the real
-   bars all share a bottom edge — which is what separates them from the
+   bars all share a bottom edge - which is what separates them from the
    value chips on the line charts. */
 function animateBars(host: HTMLElement, reduce: boolean) {
   const svg = host.querySelector("svg");
@@ -126,7 +126,7 @@ function animateBars(host: HTMLElement, reduce: boolean) {
     }
   });
 
-  /* Fewer than three sharing an edge means this isn't a bar chart — the
+  /* Fewer than three sharing an edge means this isn't a bar chart - the
      navy blocks are value chips scattered up a line plot. Leave them be. */
   if (baseline === null || best < 3) return;
   const base = baseline as number;
@@ -156,7 +156,7 @@ function animateBars(host: HTMLElement, reduce: boolean) {
     }
     const node = g as unknown as SVGGElement;
 
-    /* Origin in user units — transform-box defaults to view-box, so this
+    /* Origin in user units - transform-box defaults to view-box, so this
        is unambiguous across browsers. */
     node.style.transformOrigin = `${box.x + box.width / 2}px ${base}px`;
 
@@ -167,7 +167,7 @@ function animateBars(host: HTMLElement, reduce: boolean) {
     }
 
     /* Commit the collapsed state with a forced reflow rather than waiting
-       on requestAnimationFrame — rAF is throttled in a background tab, and
+       on requestAnimationFrame - rAF is throttled in a background tab, and
        a reader who arrives that way would find the bars stuck at zero. */
     node.style.transition = "none";
     node.style.transform = "scaleY(0)";
@@ -252,7 +252,7 @@ export function KpiViewSwitcher() {
   }, []);
 
   /* Cycles so the swap is visible without interaction. Picking a tab no
-     longer ends the loop — it restarts the timer — so a reader can look
+     longer ends the loop - it restarts the timer - so a reader can look
      at one view and still have the comparison carry on. Pause is an
      explicit control. */
   useEffect(() => {
@@ -309,7 +309,7 @@ export function KpiViewSwitcher() {
             className="block w-full"
           />
 
-          {/* Charts — the real Figma exports, laid over the artboard's own
+          {/* Charts - the real Figma exports, laid over the artboard's own
               chart area. Both views stay mounted so switching is a fade of
               the layer plus a redraw of the bars, not a remount. */}
           <div
@@ -347,7 +347,7 @@ export function KpiViewSwitcher() {
 
           {/* Live tab control, sitting exactly on the artboard's own tabs
               and matching its fills, weights and proportions. The indicator
-              is a CSS transform on a half-width block — both tabs are equal
+              is a CSS transform on a half-width block - both tabs are equal
               width, so sliding it is all the switch needs. */}
           <div
             role="tablist"
@@ -404,7 +404,7 @@ export function KpiViewSwitcher() {
         </div>
 
         {/* Playback controls, on the canvas under the screen. Deliberately
-            no PP3/RTY buttons here — the artboard already carries those,
+            no PP3/RTY buttons here - the artboard already carries those,
             and a second set reads as a duplicate. */}
         <div className="mt-5 flex items-center justify-center gap-2 sm:mt-6">
           <button
@@ -437,7 +437,7 @@ export function KpiViewSwitcher() {
             )}
           </button>
 
-          {/* Countdown to the next switch — tells the reader the view is
+          {/* Countdown to the next switch - tells the reader the view is
               about to change rather than surprising them. */}
           <div className="h-[3px] w-24 overflow-hidden rounded-full bg-white/70 sm:w-32">
             <div

@@ -4,13 +4,13 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useInView, useReducedMotion } from "motion/react";
 
 /* ─────────────────────────────────────────────────────────────
- * KPI Platform hero — the "GBR QAR Review Items" dashboard artboard
+ * KPI Platform hero - the "GBR QAR Review Items" dashboard artboard
  * with live-animating stacked-bar charts.
  *
  * Composition:
  *  - Base: the full artboard JPG (sidebar, page title, "View for" bar).
  *  - Overlays: the two chart-card SVG frames (exported bar-less from
- *    Figma) positioned at their exact export regions — the JPG is a 4×
+ *    Figma) positioned at their exact export regions - the JPG is a 4×
  *    export, cards are exactly 1224×348 at 1× starting at (344, 173)
  *    and (344, 545), so the overlays cover the JPG's own charts
  *    pixel-perfectly.
@@ -72,7 +72,7 @@ const BARS: Bar[] = [
 const CHIP_W = 32;
 const CHIP_H = 14;
 
-/* Per-segment animation delays (s) — bars fill bottom-to-top */
+/* Per-segment animation delays (s) - bars fill bottom-to-top */
 const SEG_DELAY = [0.15, 0.4, 0.7, 0.95];
 const SEG_DUR = [0.5, 0.55, 0.5, 0.4];
 
@@ -93,12 +93,12 @@ function AnimatedChart({
       style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
     >
       {/* Bar-less chart frame exported from Figma (axes, gridlines,
-          月labels, legend, marker line) — covers the JPG's own chart */}
+          月labels, legend, marker line) - covers the JPG's own chart */}
       <image href={frameSrc} width="1224" height="348" />
 
       {BARS.map((bar, b) => (
         <g key={b}>
-          {/* Segments — grow from their own bottom edge, in order */}
+          {/* Segments - grow from their own bottom edge, in order */}
           {bar.segs.map((s, i) => (
             <motion.rect
               key={i}
@@ -170,7 +170,7 @@ function AnimatedChart({
             {bar.total.text}
           </motion.text>
 
-          {/* Navy metric chip — pops in last */}
+          {/* Navy metric chip - pops in last */}
           <motion.g
             style={{ transformBox: "fill-box", transformOrigin: "50% 50%" }}
             variants={{
@@ -213,7 +213,7 @@ function AnimatedChart({
   );
 }
 
-/* Overlay placement — exact export regions of the two cards within the
+/* Overlay placement - exact export regions of the two cards within the
    6400×3904 artboard JPG (4× scale): cards are 4896×1392 at x=1376,
    y=692 (card 1) and y=2180 (card 2). */
 const CARD_LEFT = "21.5%"; // 1376 / 6400
@@ -222,7 +222,7 @@ const CARD1_TOP = "17.7254%"; // 692 / 3904
 const CARD2_TOP = "55.8402%"; // 2180 / 3904
 const CARD_HEIGHT = "35.6557%"; // 1392 / 3904
 
-/* Replay interval — the fill animation restarts this often while the
+/* Replay interval - the fill animation restarts this often while the
    visual stays on screen. */
 const LOOP_MS = 5000;
 
@@ -249,11 +249,11 @@ export function KpiHeroShowcase() {
       <div
         ref={ref}
         role="img"
-        aria-label="GBR QAR Review Items dashboard — stacked-bar charts tracking review completion against 75% and 90% benchmarks, animating as data fills in."
+        aria-label="GBR QAR Review Items dashboard - stacked-bar charts tracking review completion against 75% and 90% benchmarks, animating as data fills in."
         className="relative w-full overflow-hidden rounded-[12px] border border-[#e0e0e0] bg-white"
         style={{ aspectRatio: "6400 / 3904" }}
       >
-        {/* Full artboard — sidebar, page title, view-for bar */}
+        {/* Full artboard - sidebar, page title, view-for bar */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/figma/KPI%2023/kpi%2323.jpg"
@@ -261,7 +261,7 @@ export function KpiHeroShowcase() {
           className="absolute inset-0 h-full w-full object-cover"
         />
 
-        {/* Chart card overlays — bar-less SVG frames + animated bars.
+        {/* Chart card overlays - bar-less SVG frames + animated bars.
             Keyed by cycle so each tick remounts and replays the fill. */}
         <motion.div
           key={cycle}

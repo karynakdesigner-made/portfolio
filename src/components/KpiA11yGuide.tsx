@@ -4,13 +4,13 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { useReducedMotion } from "motion/react";
 
 /* ─────────────────────────────────────────────────────────────
- * KPI Platform — the accessibility guide, page by page.
+ * KPI Platform - the accessibility guide, page by page.
  *
  * The real exported pages of "Creating Accessible Charts". They're
  * ordered by the page numbers printed on the slides, which run
  * opposite to the filenames: 20 is page 4, 17 is page 7.
  *
- * The track is a CSS transform rather than an animation library —
+ * The track is a CSS transform rather than an animation library -
  * transforms re-target from wherever they are, so a fast click
  * during a move can't leave the deck out of step with the dots.
  * ───────────────────────────────────────────────────────────── */
@@ -26,7 +26,7 @@ const CTRL =
   "hover:text-[#181212] focus-visible:outline focus-visible:outline-2 " +
   "focus-visible:outline-offset-2 focus-visible:outline-[#181212]";
 
-/* Cover, then the summary up front — it frames what the following pages
+/* Cover, then the summary up front - it frames what the following pages
    go on to detail. */
 const PAGES = [
   { file: 23, title: "Creating Accessible Charts" },
@@ -61,7 +61,7 @@ export function KpiA11yGuide() {
   }, []);
 
   /* Loops continuously while on screen. Picking a page no longer ends the
-     loop — it just restarts the timer — so the reader can browse and let
+     loop - it just restarts the timer - so the reader can browse and let
      it carry on. Pause is an explicit control. */
   useEffect(() => {
     if (!inView || !playing || reduce) return;
@@ -119,7 +119,7 @@ export function KpiA11yGuide() {
                     : ""
                 }
                 /* Not lazy: these sit on a translated track, so they never
-                   intersect the viewport and would stay unloaded — the
+                   intersect the viewport and would stay unloaded - the
                    later pages would arrive blank. */
                 decoding="async"
                 className="h-full w-full shrink-0 object-cover"

@@ -46,25 +46,25 @@ type Slot = {
 /* Four media slots, positioned as % of the 1440×1024 design canvas. */
 const SLOTS: Slot[] = [
   {
-    // Top-right — cloud particles
+    // Top-right - cloud particles
     src: `${V}/vid-cloud.mp4`,
     poster: `${V}/vid-cloud-poster.jpg`,
     style: { left: "61.74%", top: "8.89%", width: "17.99%", height: "14.26%" },
   },
   {
-    // Top-far-right — cubes
+    // Top-far-right - cubes
     src: `${V}/vid-cubes.mp4`,
     poster: `${V}/vid-cubes-poster.jpg`,
     style: { left: "81.39%", top: "3.52%", width: "13.61%", height: "10.74%" },
   },
   {
-    // Bottom-left — laptop / coding
+    // Bottom-left - laptop / coding
     src: `${V}/vid-laptop.mp4`,
     poster: `${V}/vid-laptop-poster.jpg`,
     style: { left: "5%", top: "77.54%", width: "24.03%", height: "18.95%" },
   },
   {
-    // Bottom-center — 3D form
+    // Bottom-center - 3D form
     src: `${V}/vid-center.mp4`,
     poster: `${V}/vid-center-poster.jpg`,
     style: { left: "30.69%", top: "81.93%", width: "8.4%", height: "15.33%" },
@@ -143,7 +143,7 @@ export function GepWelcomeHero() {
           style={{
             aspectRatio: "1440 / 1024",
             containerType: "inline-size",
-            // Ubuntu — the font from the original Figma design, scoped to this
+            // Ubuntu - the font from the original Figma design, scoped to this
             // visual only (never touches the rest of the project's typography).
             fontFamily: "var(--font-ubuntu), system-ui, sans-serif",
           }}
@@ -260,7 +260,7 @@ export function GepWelcomeHero() {
               Explore, leverage, and share resources to unleash the potential of AI.
             </motion.p>
 
-            {/* Login button — cyan, glows softly */}
+            {/* Login button - cyan, glows softly */}
             <motion.button
               variants={item}
               type="button"

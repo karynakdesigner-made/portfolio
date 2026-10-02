@@ -4,7 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { useReducedMotion } from "motion/react";
 
 /* ─────────────────────────────────────────────────────────────
- * KPI Platform — the visualisation-standards deck, page by page.
+ * KPI Platform - the visualisation-standards deck, page by page.
  *
  * The exported pages of "Creating Consistent KPIs", generated from the
  * Guide folder into public/figma/kpi-standards.
@@ -13,7 +13,7 @@ import { useReducedMotion } from "motion/react";
  * fan looked good in motion but it dimmed and shrank every page behind
  * the front one, which is the opposite of what a reference deck is for:
  * each page has to be legible on its own. Same carousel as the
- * accessibility guide now — one page at a time, at full opacity.
+ * accessibility guide now - one page at a time, at full opacity.
  *
  * The track is a CSS transform rather than an animation library:
  * transforms re-target from wherever they are, so a fast click during a
@@ -32,7 +32,7 @@ const CTRL =
   "focus-visible:outline-offset-2 focus-visible:outline-[#181212]";
 
 /* Kept in sync with public/figma/kpi-standards, which is generated from
-   the Guide folder. The deck was renumbered — it now runs 1–15 with no
+   the Guide folder. The deck was renumbered - it now runs 1–15 with no
    gaps, where it previously skipped 11 and ended at 16. */
 const PAGES = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 const TOTAL = PAGES.length;
@@ -116,7 +116,7 @@ export function KpiStandardsDeck() {
                     : ""
                 }
                 /* Not lazy: these sit on a translated track, so they never
-                   intersect the viewport and would stay unloaded — the
+                   intersect the viewport and would stay unloaded - the
                    later pages would arrive blank. */
                 decoding="async"
                 className="h-full w-full shrink-0 object-cover"

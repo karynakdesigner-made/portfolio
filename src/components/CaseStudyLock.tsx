@@ -5,7 +5,7 @@ import { motion } from "motion/react";
 import Link from "next/link";
 
 /* ─────────────────────────────────────────────────────────────
- * CaseStudyLock — password gate shared by every case study.
+ * CaseStudyLock - password gate shared by every case study.
  * Styled strictly with the portfolio's existing system:
  *   - Colors: #181212, #211B1C, #4a4a4a, #6b6b6b, #ececec, #f8f8f8
  *   - Type: Mosvita (inherited) + Patience for the script logo
@@ -57,7 +57,7 @@ function CheckIcon({ size = 16 }: { size?: number }) {
   );
 }
 
-/* Email pill with copy button — same pattern as the homepage footer's
+/* Email pill with copy button - same pattern as the homepage footer's
    contact card, with visible "Copied!" feedback. */
 function EmailPill() {
   const [copied, setCopied] = useState(false);
@@ -68,7 +68,7 @@ function EmailPill() {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch {
-      // Clipboard unavailable — the address stays visible and selectable.
+      // Clipboard unavailable - the address stays visible and selectable.
     }
   };
 
@@ -109,7 +109,7 @@ export function CaseStudyLock({ children }: { children: React.ReactNode }) {
   /* The one render pass this costs is the point of the "checking" state:
      localStorage doesn't exist during SSR, so the unlock can only be read
      after mount, and rendering the form before we know would flash the
-     password gate at someone who has already unlocked. Deliberate — not
+     password gate at someone who has already unlocked. Deliberate - not
      the accidental cascade the rule is aimed at. */
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
@@ -135,7 +135,7 @@ export function CaseStudyLock({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="flex min-h-screen flex-col px-5 pt-6 sm:px-8 lg:px-16 lg:pt-8">
-      {/* Two-line script logo — same treatment as the homepage sidebar */}
+      {/* Two-line script logo - same treatment as the homepage sidebar */}
       <Link
         href="/"
         style={{ fontFamily: "var(--font-patience), serif" }}
@@ -168,7 +168,7 @@ export function CaseStudyLock({ children }: { children: React.ReactNode }) {
         animate="show"
         transition={{ staggerChildren: 0.12, delayChildren: 0.05 }}
       >
-        {/* Left rail — same style as the case studies' section labels */}
+        {/* Left rail - same style as the case studies' section labels */}
         <motion.p
           variants={labelSlide}
           transition={{ duration: 0.6, ease: EASE }}
@@ -177,7 +177,7 @@ export function CaseStudyLock({ children }: { children: React.ReactNode }) {
           Locked
         </motion.p>
 
-        {/* Right column — headline, explanation, password form */}
+        {/* Right column - headline, explanation, password form */}
         <div className="flex max-w-[760px] flex-col gap-10">
           <div className="flex flex-col gap-5">
             <motion.h1
@@ -193,7 +193,7 @@ export function CaseStudyLock({ children }: { children: React.ReactNode }) {
               className="max-w-[640px] text-[18px] leading-[1.5] text-[#4a4a4a]"
             >
               My case studies go deep into product work I keep off the open
-              web, so they sit behind a password. I&apos;m happy to share it —
+              web, so they sit behind a password. I&apos;m happy to share it -
               drop me a line and I&apos;ll send it over.
             </motion.p>
             <motion.div
@@ -241,7 +241,7 @@ export function CaseStudyLock({ children }: { children: React.ReactNode }) {
                 aria-live="polite"
                 className="min-h-[22px] text-[15px] italic text-[#6b6b6b]"
               >
-                {error ? "That's not it — double-check and try again." : ""}
+                {error ? "That's not it - double-check and try again." : ""}
               </p>
             </div>
 

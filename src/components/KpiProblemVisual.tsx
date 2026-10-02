@@ -4,12 +4,12 @@ import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react
 import { motion, useReducedMotion } from "motion/react";
 
 /* ─────────────────────────────────────────────────────────────
- * KPI Problem visual — "metrics lived in disconnected Excel files".
+ * KPI Problem visual - "metrics lived in disconnected Excel files".
  *
  * Five mismatched spreadsheet-file cards float in their own silos,
  * each with a different team's format and messy filename. Dashed
- * connectors toward the center never arrive — each is broken with an
- * ✕ — and the middle holds an empty dashed slot where the shared
+ * connectors toward the center never arrive - each is broken with an
+ * ✕ - and the middle holds an empty dashed slot where the shared
  * picture should be.
  *
  * Palette is restricted to the hero dashboard's chart colors:
@@ -31,7 +31,7 @@ type FileCard = {
   name: string;
   owner: string;
   accent: string;
-  headerText: string; // filename color — dark on the light accents
+  headerText: string; // filename color - dark on the light accents
   chart: "bars" | "line" | "table" | "stacked" | "spark";
   left?: string;
   right?: string;
@@ -43,7 +43,7 @@ type FileCard = {
 };
 
 /* Card offsets are balanced so the topmost and bottommost card edges sit
-   the same distance from the container — the cluster reads as centered. */
+   the same distance from the container - the cluster reads as centered. */
 const CARDS: FileCard[] = [
   { name: "Sales_KPIs_FINAL_v3.xlsx", owner: "Sales", accent: PALETTE.dgreen, headerText: "rgba(255,255,255,0.95)", chart: "bars", left: "8%", top: "13%", rotate: -3, floatDur: 5.2, delay: 0 },
   { name: "ops-metrics (2).xlsx", owner: "Operations", accent: PALETTE.navy, headerText: "rgba(255,255,255,0.95)", chart: "table", right: "8%", top: "15%", rotate: 2.5, floatDur: 6.1, delay: 0.12 },
@@ -66,7 +66,7 @@ const slotHalfSize = (w: number, h: number) => ({
 
 /* How far beyond the slot's border each ✕ sits, in px. Because this is
    applied along each connector's own ray in real pixel space, every break
-   lands the same distance out — an even ring around the centre. */
+   lands the same distance out - an even ring around the centre. */
 const CROSS_GAP = 20;
 
 type Geometry = {
@@ -115,7 +115,7 @@ function computeGeometry(w: number, h: number, cardCentres: { x: number; y: numb
   return { w, h, links };
 }
 
-/* Tiny mismatched chart previews — every team draws data differently */
+/* Tiny mismatched chart previews - every team draws data differently */
 function MiniChart({ kind, accent }: { kind: FileCard["chart"]; accent: string }) {
   switch (kind) {
     case "bars":
@@ -206,7 +206,7 @@ function SpreadsheetCard({
             : { duration: card.floatDur, repeat: Infinity, ease: "easeInOut", delay: card.delay }
         }
       >
-        {/* File chrome — each team's own header tint */}
+        {/* File chrome - each team's own header tint */}
         <div className="flex items-center gap-1.5 px-2.5 py-1.5" style={{ backgroundColor: card.accent }}>
           {/* excel-ish grid glyph */}
           <svg viewBox="0 0 12 12" className="h-3 w-3 shrink-0" aria-hidden>
@@ -217,7 +217,7 @@ function SpreadsheetCard({
             {card.name}
           </span>
         </div>
-        {/* Sheet body — mini grid + mismatched chart */}
+        {/* Sheet body - mini grid + mismatched chart */}
         <div className="flex flex-col gap-1.5 p-2.5">
           <div className="grid grid-cols-5 gap-[2px]">
             {Array.from({ length: 10 }).map((_, i) => (
@@ -257,7 +257,7 @@ export function KpiProblemVisual() {
     const h = stage.offsetHeight;
     if (!w || !h) return;
 
-    // Wait until every card has mounted — a missing one would otherwise
+    // Wait until every card has mounted - a missing one would otherwise
     // contribute a degenerate ray and skew nothing but waste a render.
     const els = CARDS.map((_, i) => cardEls.current[i]);
     if (els.some((el) => !el)) return;
@@ -289,7 +289,7 @@ export function KpiProblemVisual() {
   return (
     <motion.div
       role="img"
-      aria-label="Before — company KPIs scattered across disconnected Excel files, each in a different team's format, none connected to a shared view."
+      aria-label="Before - company KPIs scattered across disconnected Excel files, each in a different team's format, none connected to a shared view."
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.35 }}
@@ -324,7 +324,7 @@ export function KpiProblemVisual() {
           </motion.svg>
         )}
 
-        {/* ✕ break marks — each CROSS_GAP px out from the slot border */}
+        {/* ✕ break marks - each CROSS_GAP px out from the slot border */}
         {geo?.links.map((l, i) => (
           <motion.span
             key={i}
@@ -343,7 +343,7 @@ export function KpiProblemVisual() {
           </motion.span>
         ))}
 
-        {/* Center — the shared picture that doesn't exist. Sits above the
+        {/* Center - the shared picture that doesn't exist. Sits above the
             cards so the message stays legible when they crowd it on narrow
             screens. */}
         <motion.div

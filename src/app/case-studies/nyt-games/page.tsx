@@ -6,7 +6,7 @@ import { CaseStudySidebar } from "@/components/CaseStudySidebar";
 import Link from "next/link";
 
 /* ─────────────────────────────────────────────────────────────
- * NYT Games App — Case Study
+ * NYT Games App - Case Study
  * Uses the same layout, sidebar, type, and color palette as the
  * Gen AI Engineering Platform case study and the main page.
  *   - Body font: Mosvita (inherited)
@@ -207,10 +207,10 @@ const AB_COLORS = {
   B: { light: "#FFF8DC", mid: "#F5D44B", dark: "#C5A200" },
 };
 
-/** Largest metric value — bars scale against this so they use the full height. */
+/** Largest metric value - bars scale against this so they use the full height. */
 const AB_MAX = Math.max(...AB_METRICS.flatMap((m) => [m.a, m.b]));
 
-/* Reset arrow — currentColor so it picks up the button's hover transition. */
+/* Reset arrow - currentColor so it picks up the button's hover transition. */
 function ResetIcon() {
   return (
     <svg
@@ -230,7 +230,7 @@ function ResetIcon() {
   );
 }
 
-/* Small medal mark — replaces the emoji trophy, matches the page's stroke icons */
+/* Small medal mark - replaces the emoji trophy, matches the page's stroke icons */
 function MedalIcon({ color }: { color: string }) {
   return (
     <svg
@@ -277,7 +277,7 @@ function NYTABTestShowcase() {
       }}
       className="grid w-full grid-cols-[1fr_1.2fr] overflow-hidden rounded-[24px] border border-[#ececec] bg-[#f8f8f8] max-md:grid-cols-1"
     >
-      {/* LEFT — Phone + Variant Toggle */}
+      {/* LEFT - Phone + Variant Toggle */}
       <motion.div
         variants={{
           hidden: { opacity: 0, x: -30, filter: "blur(8px)" },
@@ -296,7 +296,7 @@ function NYTABTestShowcase() {
         }}
         className="relative flex flex-col items-center justify-center gap-8 bg-white px-6 py-14"
       >
-        {/* Phone screenshot — crossfade between variants */}
+        {/* Phone screenshot - crossfade between variants */}
         <div className="relative aspect-square w-full max-w-[400px] overflow-hidden">
           <AnimatePresence initial={false}>
             <motion.img
@@ -344,7 +344,7 @@ function NYTABTestShowcase() {
         </div>
       </motion.div>
 
-      {/* RIGHT — Info + Results */}
+      {/* RIGHT - Info + Results */}
       <motion.div
         variants={{
           hidden: { opacity: 0, x: 30, filter: "blur(8px)" },
@@ -369,7 +369,7 @@ function NYTABTestShowcase() {
             A/B Test
           </p>
           <h3 className="mt-2 text-[22px] font-semibold leading-[1.2] text-[#181212]">
-            Onboarding — welcome vs. value-prop
+            Onboarding - welcome vs. value-prop
           </h3>
           <p className="mt-1 text-[15px] leading-[1.55] text-[#4a4a4a]">
             Onboarding screen · 7-day test · cross-platform
@@ -416,7 +416,7 @@ function NYTABTestShowcase() {
 
         {/* Results panel */}
         <div className="mt-auto rounded-[14px] border border-[#ececec] bg-white p-5">
-          {/* Header — title + legend */}
+          {/* Header - title + legend */}
           <div className="mb-7 flex items-center justify-between">
             <p className="text-[15px] font-semibold text-[#181212]">Results</p>
             <div className="flex items-center gap-3">
@@ -434,11 +434,11 @@ function NYTABTestShowcase() {
             </div>
           </div>
 
-          {/* Chart — scaffold is always present; bars fill on reveal, and a
+          {/* Chart - scaffold is always present; bars fill on reveal, and a
               frosted CTA sits over the empty state so the panel never jumps. */}
           {/* Sits low in the panel on purpose. The footer below reserves room
               for the winner banner, so anchoring the chart high left the CTA
-              landing straight on the metric labels — the extra top margin and
+              landing straight on the metric labels - the extra top margin and
               the wider bar-to-label gap give the overlay somewhere to be. */}
           <div className="relative mt-10">
             <div className="flex h-[136px] items-end justify-around gap-4 border-b border-[#ececec]">
@@ -457,7 +457,7 @@ function NYTABTestShowcase() {
                           key={key}
                           className="relative flex h-full w-[22px] items-end"
                         >
-                          {/* ghost track — the skeleton you see before reveal */}
+                          {/* ghost track - the skeleton you see before reveal */}
                           <div className="absolute inset-0 rounded-t-[4px] bg-[#f4f4f4]" />
                           <motion.div
                             initial={false}
@@ -494,7 +494,7 @@ function NYTABTestShowcase() {
               ))}
             </div>
 
-            {/* Pre-reveal — frosted overlay with the prompt + CTA */}
+            {/* Pre-reveal - frosted overlay with the prompt + CTA */}
             <AnimatePresence>
               {!revealed && (
                 <motion.div
@@ -521,7 +521,7 @@ function NYTABTestShowcase() {
             </AnimatePresence>
           </div>
 
-          {/* Footer — winner callout + reset. Height is reserved up-front so the
+          {/* Footer - winner callout + reset. Height is reserved up-front so the
               late-appearing winner banner never pushes the panel taller. */}
           <div className="mt-4 flex min-h-[52px] items-center justify-between gap-3">
             <AnimatePresence>
@@ -534,7 +534,7 @@ function NYTABTestShowcase() {
                   /* Left edge is deliberately square. With a radius on all
                      four corners the accent followed the curve and pulled
                      away from the top and bottom, reading as a smudge rather
-                     than a rule — squaring that one edge lets it run the full
+                     than a rule - squaring that one edge lets it run the full
                      height of the banner. */
                   className="flex items-center gap-3 rounded-r-[10px] border-l-[3px] bg-[#f8f8f8] py-2.5 pl-3.5 pr-4"
                   style={{ borderColor: AB_COLORS.A.dark }}
@@ -545,7 +545,7 @@ function NYTABTestShowcase() {
                       Version A won
                     </p>
                     <p className="text-[11px] text-[#6b6b6b]">
-                      Higher conversion — the primary metric
+                      Higher conversion - the primary metric
                     </p>
                   </div>
                 </motion.div>
@@ -578,7 +578,7 @@ const TYPE_SIZES = [
     key: "s",
     label: "Small",
     src: "/figma/nyt-type-xs.webp",
-    caption: "Compact text — more content fits on screen.",
+    caption: "Compact text - more content fits on screen.",
     tone: "small",
     pct: 85,
   },
@@ -586,7 +586,7 @@ const TYPE_SIZES = [
     key: "default",
     label: "Default",
     src: "/figma/nyt-type-s.webp",
-    caption: "iOS default — the baseline experience most users see.",
+    caption: "iOS default - the baseline experience most users see.",
     tone: "default",
     pct: 100,
   },
@@ -602,7 +602,7 @@ const TYPE_SIZES = [
     key: "xl",
     label: "xLarge",
     src: "/figma/nyt-type-large.webp",
-    caption: "Larger text — still comfortable to read, more breathing room.",
+    caption: "Larger text - still comfortable to read, more breathing room.",
     tone: "default",
     pct: 145,
   },
@@ -610,7 +610,7 @@ const TYPE_SIZES = [
     key: "xxl",
     label: "xxLarge",
     src: "/figma/nyt-type-xlarge.webp",
-    caption: "Secondary cards collapse — content is prioritized for readability.",
+    caption: "Secondary cards collapse - content is prioritized for readability.",
     tone: "large",
     pct: 170,
   },
@@ -618,7 +618,7 @@ const TYPE_SIZES = [
     key: "xxxl",
     label: "xxxLarge",
     src: "/figma/nyt-type-xxlarge.webp",
-    caption: "Maximum accessibility — layout fully adapts, key content stays clear.",
+    caption: "Maximum accessibility - layout fully adapts, key content stays clear.",
     tone: "large",
     pct: 200,
   },
@@ -639,7 +639,7 @@ function NYTDynamicTypeShowcase() {
       id="ACCESSIBILITY-DEMO"
       className="w-full overflow-hidden rounded-[24px] border border-[#ececec] bg-[#f8f8f8]"
     >
-      {/* Phone screenshot — crossfade between sizes, centered with symmetric padding */}
+      {/* Phone screenshot - crossfade between sizes, centered with symmetric padding */}
       <div className="flex items-center justify-center p-10">
         <div className="relative aspect-square w-full max-w-[440px] overflow-hidden">
           <AnimatePresence initial={false}>
@@ -648,7 +648,7 @@ function NYTDynamicTypeShowcase() {
                   decoding="async"
               key={step.key}
               src={step.src}
-              alt={`Games Tab — Dynamic Type ${step.label}`}
+              alt={`Games Tab - Dynamic Type ${step.label}`}
               className="absolute inset-0 h-full w-full object-contain"
               initial={{ opacity: 0, scale: 1.015 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -664,7 +664,7 @@ function NYTDynamicTypeShowcase() {
 
       {/* Controls */}
       <div className="border-t border-[#ececec] bg-white px-7 py-6">
-        {/* Hint — lets the user know the slider is interactive */}
+        {/* Hint - lets the user know the slider is interactive */}
         <p className="mb-3 text-center text-[11px] uppercase tracking-[0.12em] text-[#6b6b6b]">
           Drag to change text size
         </p>
@@ -697,7 +697,7 @@ function NYTDynamicTypeShowcase() {
           <span className="font-normal text-[#6b6b6b]">({step.pct}%)</span>
         </div>
 
-        {/* Caption — crossfade */}
+        {/* Caption - crossfade */}
         <div className="relative mx-auto mt-2 h-[40px] max-w-[420px]">
           <AnimatePresence initial={false}>
             <motion.p
@@ -714,7 +714,7 @@ function NYTDynamicTypeShowcase() {
         </div>
       </div>
 
-      {/* Slider styles — match the project's dark/light palette */}
+      {/* Slider styles - match the project's dark/light palette */}
       <style jsx>{`
         .nyt-type-slider {
           -webkit-appearance: none;
@@ -754,7 +754,7 @@ function NYTDynamicTypeShowcase() {
   );
 }
 
-/* ───────── Friend Invite — three-screen flow ───────── */
+/* ───────── Friend Invite - three-screen flow ───────── */
 /* Auto-playing carousel cycling through 3 phone screenshots:
    Leaderboard → Send Invite → Accept Invite.
    Clicking a pill jumps to that step and pauses auto-play.
@@ -766,19 +766,19 @@ const INVITE_STEPS = [
     src: "/figma/nyt-invite-1.webp",
     label: "Leaderboard",
     caption:
-      "Players see the leaderboard with a clear prompt to add friends — no hunting through menus.",
+      "Players see the leaderboard with a clear prompt to add friends - no hunting through menus.",
   },
   {
     src: "/figma/nyt-invite-2.webp",
     label: "Send Invite",
     caption:
-      "One-tap invite with a plain-English value proposition — no confusion about what happens next.",
+      "One-tap invite with a plain-English value proposition - no confusion about what happens next.",
   },
   {
     src: "/figma/nyt-invite-3.webp",
     label: "Accept Invite",
     caption:
-      "Receiving an invite is just as simple — accept or reject in one tap, then you're playing together.",
+      "Receiving an invite is just as simple - accept or reject in one tap, then you're playing together.",
   },
 ];
 
@@ -806,7 +806,7 @@ function NYTInviteShowcase() {
       id="FRIEND-INVITE-INTERACTIVE"
       className="flex w-full flex-col items-center rounded-[24px] bg-[#f8f8f8] px-4 py-10 sm:px-10 sm:py-16"
     >
-      {/* Step pills — matches the A/B test toggle styling (white-on-white active),
+      {/* Step pills - matches the A/B test toggle styling (white-on-white active),
           but without per-step dots since the steps aren't variant-colored. */}
       <div className="flex gap-1 rounded-full border border-[#e3e3e3] bg-white/70 p-1 backdrop-blur">
         {INVITE_STEPS.map((s, i) => (
@@ -826,7 +826,7 @@ function NYTInviteShowcase() {
         ))}
       </div>
 
-      {/* Phone screenshots — all three stay mounted and crossfade with a gentle
+      {/* Phone screenshots - all three stay mounted and crossfade with a gentle
           directional drift on one shared ease, so nothing remounts, pops, or
           settles out of sync mid-transition. mt-6 matches A/B test's gap-6. */}
       <div className="relative mt-6 aspect-square w-full max-w-[440px] overflow-hidden">
@@ -849,7 +849,7 @@ function NYTInviteShowcase() {
         ))}
       </div>
 
-      {/* Step dots — sit close to the phone screen */}
+      {/* Step dots - sit close to the phone screen */}
       <div className="-mt-1 flex items-center gap-2">
         {INVITE_STEPS.map((_, i) => (
           <button
@@ -865,7 +865,7 @@ function NYTInviteShowcase() {
         ))}
       </div>
 
-      {/* Caption — crossfades on the same ease, slightly quicker than the screen */}
+      {/* Caption - crossfades on the same ease, slightly quicker than the screen */}
       <div className="relative mt-5 h-[48px] w-full max-w-[460px]">
         {INVITE_STEPS.map((s, i) => (
           <motion.p
@@ -887,7 +887,7 @@ function NYTInviteShowcase() {
   );
 }
 
-/* Hero bento — five separate blocks, each animated in with a choreographed
+/* Hero bento - five separate blocks, each animated in with a choreographed
    stagger. Note: the on-disk filenames for the phone/icons blocks are swapped
    relative to their content (icons file = phone screen, phone file = icon grid). */
 type BentoBlock = {
@@ -918,7 +918,7 @@ const BENTO_BLOCKS: BentoBlock[] = [
   {
     key: "icons",
     src: "/figma/nyt-bento-phone.webp",
-    alt: "The Games puzzle icons — Connections, Mini, Wordle, Crossword, Vertex, Spelling Bee, Sudoku and more",
+    alt: "The Games puzzle icons - Connections, Mini, Wordle, Crossword, Vertex, Spelling Bee, Sudoku and more",
     bg: "#f4f4f4",
     area: { gridColumn: 1, gridRow: "2 / span 2" },
     from: { x: -44, rotate: 2 },
@@ -928,7 +928,7 @@ const BENTO_BLOCKS: BentoBlock[] = [
   {
     key: "phone",
     src: "/figma/nyt-bento-icons.webp",
-    alt: "NYT Games app home screen — Good morning, choose a puzzle to play",
+    alt: "NYT Games app home screen - Good morning, choose a puzzle to play",
     bg: "#f4f4f4",
     area: { gridColumn: 2, gridRow: "1 / span 3" },
     from: { y: 56, scale: 0.9 },
@@ -946,7 +946,7 @@ const BENTO_BLOCKS: BentoBlock[] = [
   {
     key: "recognition",
     src: "/figma/nyt-bento-recognition.webp",
-    alt: "Recognition — the app was recognized by Apple as a winner in the Delight and Fun category",
+    alt: "Recognition - the app was recognized by Apple as a winner in the Delight and Fun category",
     bg: "#f4f4f4",
     area: { gridColumn: 3, gridRow: 3 },
     from: { y: 40 },
@@ -1029,7 +1029,7 @@ export default function NYTGamesCaseStudy() {
     <div className="flex">
       <CaseStudySidebar items={NYT_NAV} />
       <main className="min-w-0 flex-1 px-5 pt-6 sm:px-8 lg:px-16 lg:pt-8">
-        {/* Mobile back link — shown only when the sidebar is hidden */}
+        {/* Mobile back link - shown only when the sidebar is hidden */}
         <Link
           href="/"
           className="mb-6 inline-flex w-fit items-center gap-2 text-[15px] font-semibold text-[#181212] underline-offset-4 transition-colors hover:underline lg:hidden"
@@ -1061,17 +1061,17 @@ export default function NYTGamesCaseStudy() {
               transition={{ duration: 0.9, ease: EASE }}
               className="max-w-[900px] text-[20px] font-semibold leading-[1.25] text-[#181212] sm:text-[24px] lg:text-[28px]"
             >
-              Shaping a product millions play daily
+              Designing for a daily habit
             </motion.p>
             <motion.p
               variants={fadeUp}
               transition={{ duration: 0.85, ease: EASE }}
               className="max-w-[720px] text-[18px] leading-[1.5] text-[#4a4a4a]"
             >
-              Senior Product Designer on one of the NYT&apos;s flagship products. I
-              worked within a large cross-functional team to improve the
-              experience behind Wordle, Spelling Bee, Connections, and the full
-              Games suite — a 2024 Apple Design Award winner.
+              I joined through Capgemini Engineering and worked inside the NYT
+              Games design team - on friend invites, onboarding, and the
+              redesign that turned a crossword app into a home for every game.
+              In 2024, the app won the Apple Design Award for Delight and Fun.
             </motion.p>
           </div>
 
@@ -1145,28 +1145,32 @@ export default function NYTGamesCaseStudy() {
               className="flex flex-col gap-8 text-[18px] leading-[1.5] text-[#211B1C]"
             >
               <p className="text-[18px] font-normal leading-[1.5] text-[#4a4a4a]">
-                I owned the friend invite redesign, designed onboarding
-                experiments, and supported the Games Tab launch.
+                I owned the friend invite fix and the Games Tab introduction,
+                designed the onboarding test variants, and wrote the dynamic
+                type specs for the new game cards.
               </p>
               <div className="flex flex-col gap-4">
-                <InfoCard number="01" title="A/B Testing & Optimization">
-                  Designed test variants and partnered with marketing and data
-                  science on onboarding experiments.
+                <InfoCard number="01" title="Friend invites">
+                  Streamlined sending from three steps to two and resolved an
+                  issue that invalidated invites when they were closed.
                 </InfoCard>
-                <InfoCard number="02" title="Social Features">
-                  Redesigned the friend invite flow — cut it from 4 steps to 2
-                  with contextual prompts and clearer CTAs.
+                <InfoCard number="02" title="Onboarding">
+                  Designed two variants of the first-launch screen. The selected
+                  version remains in production as of 2026.
                 </InfoCard>
-                <InfoCard number="03" title="Accessibility & Design System">
-                  Made accessibility part of every release: dynamic type, layout
-                  scaling, and regular QA reviews. Also contributed to the NYT
-                  Design System.
+                <InfoCard number="03" title="Games Tab introduction">
+                  Designed the modal introducing the redesigned home. As of 2026,
+                  the pattern is still used for new feature launches.
+                </InfoCard>
+                <InfoCard number="04" title="Dynamic type">
+                  Defined how game cards adapt across text sizes on iOS and
+                  Android, and conducted visual QA with engineering.
                 </InfoCard>
               </div>
             </motion.div>
           </div>
 
-          {/* Game icons strip — full width. mt-16 adds extra breathing room
+          {/* Game icons strip - full width. mt-16 adds extra breathing room
               above the strip, on top of the section's gap-12. */}
           <motion.figure
             initial="hidden"
@@ -1192,7 +1196,7 @@ export default function NYTGamesCaseStudy() {
               transition={{ duration: 0.6, ease: EASE }}
               className="text-[18px] font-semibold leading-[1.3] text-[#181212] sm:text-[22px]"
             >
-              Converting interest into engagement
+              Onboarding. Designing the first-launch screen
             </motion.h2>
             <motion.div
               initial="hidden"
@@ -1204,21 +1208,16 @@ export default function NYTGamesCaseStudy() {
             >
               <div className="flex flex-col gap-4 text-[18px] leading-[1.5] text-[#211B1C]">
                 <p>
-                  Onboarding wasn&apos;t turning the app&apos;s strong organic
-                  traffic into active players.
+                  The first screen after download decides how a new player meets
+                  the app. The team needed to choose between leading with the
+                  value of a free account and simply welcoming players into the
+                  games. Accounts matter to the business, but the product grows
+                  through daily habit - and only players build habits.
                 </p>
                 <p>
-                  I ran cross-functional A/B testing to fix that —{" "}
-                  <span className="font-semibold text-[#181212]">
-                    designing test variants and partnering with marketing and
-                    data science
-                  </span>{" "}
-                  until the experience held together from first impression to
-                  first session.
-                </p>
-                <p>
-                  The results: measurable lifts across activation, conversion,
-                  and retention.
+                  I designed both variants. The NYT UX research team evaluated
+                  them with users, and Version A was selected. As of 2026, it
+                  remains in production.
                 </p>
               </div>
               <div className="flex flex-wrap gap-3 pt-2">
@@ -1264,7 +1263,7 @@ export default function NYTGamesCaseStudy() {
             >
               <div className="flex flex-col gap-4 text-[18px] leading-[1.5] text-[#211B1C]">
                 <p>
-                  Players wanted to compete with friends but dropped off —
+                  Players wanted to compete with friends but dropped off -
                   confusing CTAs, unclear value, 4 unnecessary steps.
                 </p>
                 <p>
@@ -1291,7 +1290,7 @@ export default function NYTGamesCaseStudy() {
             transition={{ duration: 0.9, ease: EASE }}
             className="flex w-full flex-col gap-5"
           >
-            <FigureCaption>Friend invite — three-screen flow</FigureCaption>
+            <FigureCaption>Friend invite - three-screen flow</FigureCaption>
             <NYTInviteShowcase />
           </motion.figure>
         </section>
@@ -1319,12 +1318,12 @@ export default function NYTGamesCaseStudy() {
             >
               <p className="text-[18px] leading-[1.5] text-[#211B1C]">
                 With millions of daily players across iOS and Android, every
-                detail matters — especially during big launches like the new
+                detail matters - especially during big launches like the new
                 Games Tab.
               </p>
               <div className="mt-2 grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <InfoCard title="Accessibility-first">
-                  I sat with QA regularly to catch issues early — dynamic
+                  I sat with QA regularly to catch issues early - dynamic
                   type, layout scaling, the stuff that breaks quietly if
                   nobody&apos;s watching.
                 </InfoCard>
@@ -1336,7 +1335,7 @@ export default function NYTGamesCaseStudy() {
             </motion.div>
           </div>
 
-          {/* Dynamic type demo — full width */}
+          {/* Dynamic type demo - full width */}
           <motion.figure
             initial="hidden"
             whileInView="show"
@@ -1346,12 +1345,12 @@ export default function NYTGamesCaseStudy() {
             className="flex w-full flex-col gap-5"
           >
             <FigureCaption>
-              Dynamic type — the UI reflows at every size
+              Dynamic type - the UI reflows at every size
             </FigureCaption>
             <NYTDynamicTypeShowcase />
           </motion.figure>
 
-          {/* Games Tab launch — text + visual. mt-[120px] on top of the
+          {/* Games Tab launch - text + visual. mt-[120px] on top of the
               section's gap-20 (80px) = 200px total, matching the inter-section
               spacing so this reads as its own section. */}
           <div className="mt-20 grid grid-cols-1 items-start gap-x-12 gap-y-5 lg:mt-[120px] lg:grid-cols-[1fr_2fr]">
@@ -1373,7 +1372,7 @@ export default function NYTGamesCaseStudy() {
               transition={{ duration: 0.9, ease: EASE, delay: 0.1 }}
               className="text-[18px] leading-[1.5] text-[#211B1C]"
             >
-              Designed the onboarding modal for the Games Tab launch — a
+              Designed the onboarding modal for the Games Tab launch - a
               welcome moment seen by millions of players. The pattern was later
               reused across the product for other feature introductions.
             </motion.p>
@@ -1387,12 +1386,12 @@ export default function NYTGamesCaseStudy() {
             transition={{ duration: 0.9, ease: EASE }}
             className="flex w-full flex-col gap-5"
           >
-            <FigureCaption>Welcome modal — the launch animation</FigureCaption>
+            <FigureCaption>Welcome modal - the launch animation</FigureCaption>
             <div
               id="WELCOME-MODAL"
               className="relative flex w-full items-center justify-center overflow-hidden rounded-[24px] bg-[#f8f8f8] py-12"
             >
-              {/* Soft radial spotlight — lifts the phone off the flat canvas
+              {/* Soft radial spotlight - lifts the phone off the flat canvas
                   and keeps it the focal point. */}
               <div
                 aria-hidden
@@ -1472,7 +1471,7 @@ export default function NYTGamesCaseStudy() {
                 })()}
               </div>
 
-              {/* Phone frame composited with the welcome-modal GIF — sits above the cards */}
+              {/* Phone frame composited with the welcome-modal GIF - sits above the cards */}
               <div className="relative z-10 aspect-square w-full max-w-[460px]">
                 {/* iPhone frame */}
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -1499,7 +1498,7 @@ export default function NYTGamesCaseStudy() {
                   loading="lazy"
                   decoding="async"
                     src="/figma/nyt-welcome-modal.gif"
-                    alt="Games Tab welcome modal — puzzle grid animates in, then 'Introducing the Games tab' headline and 'Got it' button appear"
+                    alt="Games Tab welcome modal - puzzle grid animates in, then 'Introducing the Games tab' headline and 'Got it' button appear"
                     className="h-full w-full object-cover"
                   />
                 </div>
@@ -1531,7 +1530,7 @@ export default function NYTGamesCaseStudy() {
             >
               <p className="text-[18px] leading-[1.5] text-[#211B1C]">
                 Proud to have been part of the team behind a 2024 Apple Design
-                Award winner in Delight and Fun — an award that reflects what
+                Award winner in Delight and Fun - an award that reflects what
                 this team cared about most: craft, play, and making things feel
                 right.
               </p>
@@ -1547,7 +1546,7 @@ export default function NYTGamesCaseStudy() {
             className="flex w-full flex-col gap-5"
           >
             <FigureCaption>
-              Apple Design Award — winner, 2024
+              Apple Design Award - winner, 2024
             </FigureCaption>
             <div
               id="RECOGNITION-PHONES"
@@ -1566,13 +1565,13 @@ export default function NYTGamesCaseStudy() {
                     "radial-gradient(ellipse 55% 62% at 50% 52%, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0) 72%)",
                 }}
               />
-              {/* Phones rise into focus — spring scale + de-blur, matching the
+              {/* Phones rise into focus - spring scale + de-blur, matching the
                   page's other reveal animations. */}
               <motion.img
                   loading="lazy"
                   decoding="async"
                 src="/figma/nyt-recognition.webp"
-                alt="Two 3D-rendered iPhone mockups — one showing the Games Tab welcome modal, the other showing the Games Tab home screen"
+                alt="Two 3D-rendered iPhone mockups - one showing the Games Tab welcome modal, the other showing the Games Tab home screen"
                 className="relative z-10 block h-auto w-[92%] max-w-[920px] rounded-[12px]"
                 initial={{ opacity: 0, scale: 0.92, y: 36, filter: "blur(12px)" }}
                 whileInView={{ opacity: 1, scale: 1, y: 0, filter: "blur(0px)" }}

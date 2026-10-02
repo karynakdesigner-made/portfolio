@@ -1,4 +1,4 @@
-/* Relative path instead of the bare "tailwindcss" specifier — Turbopack's
+/* Relative path instead of the bare "tailwindcss" specifier - Turbopack's
    PostCSS worker resolves bare module imports against the wrong directory
    in this workspace layout. */
 @import "../../node_modules/tailwindcss/index.css";

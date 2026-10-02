@@ -3,7 +3,7 @@ import localFont from "next/font/local";
 import { Ubuntu } from "next/font/google";
 import "./globals.css";
 
-/* Ubuntu — used ONLY inside the GEP Welcome hero visual (matches its Figma
+/* Ubuntu - used ONLY inside the GEP Welcome hero visual (matches its Figma
    source). Exposed as a CSS variable so it never leaks to global typography. */
 const ubuntu = Ubuntu({
   variable: "--font-ubuntu",
@@ -31,7 +31,7 @@ const patience = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Karina Kravchenko — Senior Product Designer",
+  title: "Karina Kravchenko - Senior Product Designer",
   description:
     "Senior UX Designer working on AI products, complex systems, and the interfaces in between.",
 };

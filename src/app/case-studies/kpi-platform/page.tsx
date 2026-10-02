@@ -11,7 +11,7 @@ import { KpiA11yGuide } from "@/components/KpiA11yGuide";
 import Link from "next/link";
 
 /* ─────────────────────────────────────────────────────────────
- * KPI Platform — Case Study
+ * KPI Platform - Case Study
  * Text-only pass. Images arrive later; every visual slot renders
  * an accessible, correctly-proportioned placeholder that carries
  * the final image's alt text now (role="img" + aria-label) so a
@@ -33,7 +33,7 @@ const labelSlide = {
   show: { opacity: 1, x: 0 },
 };
 
-/* Sidebar / scrollspy — one entry per section id below. */
+/* Sidebar / scrollspy - one entry per section id below. */
 const KPI_NAV = [
   { id: "overview", label: "Overview" },
   { id: "problem", label: "The Problem" },
@@ -44,12 +44,12 @@ const KPI_NAV = [
   { id: "learnings", label: "Learnings" },
 ];
 
-/* Shared focus ring for links — the site's links only style :hover, so
+/* Shared focus ring for links - the site's links only style :hover, so
    this adds the visible keyboard-focus state the a11y brief requires. */
 const FOCUS_RING =
   "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#181212] focus-visible:rounded-sm";
 
-/* Image placeholder — subtle tile, centered filename, ~16:9, and the
+/* Image placeholder - subtle tile, centered filename, ~16:9, and the
    real image's alt text pre-wired via role="img" + aria-label. */
 function ImagePlaceholder({
   filename,
@@ -90,7 +90,7 @@ function ImagePlaceholder({
   );
 }
 
-/* ───────── Content (verbatim — light typographic formatting only) ───────── */
+/* ───────── Content (verbatim - light typographic formatting only) ───────── */
 
 const META = [
   { label: "Role", value: "Senior User Experience Designer" },
@@ -144,14 +144,14 @@ const SOLUTIONS: Solution[] = [
   {
     n: "2",
     heading: "Brand-aligned chart system",
-    body: "Every chart and graph follows the brand palette, giving company data a consistent, recognizable visual identity. Instead of each team improvising chart styles, the system defines chart types, color usage, typography, and states — so a chart from any team looks like it belongs to the same company.",
+    body: "Every chart and graph follows the brand palette, giving company data a consistent, recognizable visual identity. Instead of each team improvising chart styles, the system defines chart types, color usage, typography, and states - so a chart from any team looks like it belongs to the same company.",
     visual: "standards-deck",
     images: [],
   },
   {
     n: "3",
     heading: "Accessibility guide for charts",
-    body: "To make the system scalable, I created a guide with clear rules for building charts readable by everyone — including users with low vision and color blindness: contrast requirements, color-independent encoding (patterns, labels, direct annotation), and text sizing. Anyone adding a new chart can keep it accessible and on-brand without me in the room.",
+    body: "To make the system scalable, I created a guide with clear rules for building charts readable by everyone - including users with low vision and color blindness: contrast requirements, color-independent encoding (patterns, labels, direct annotation), and text sizing. Anyone adding a new chart can keep it accessible and on-brand without me in the room.",
     visual: "a11y-guide",
     images: [],
   },
@@ -160,19 +160,19 @@ const SOLUTIONS: Solution[] = [
 const DECISIONS = [
   {
     lead: "A platform, not better spreadsheets.",
-    body: "Standardizing the Excel files would have been faster, but it would have preserved the core problem: fragmented ownership and static data. Building on a data lake cost more upfront and paid it back in trust — one pipeline, one definition per metric, always current.",
+    body: "Standardizing the Excel files would have been faster, but it would have preserved the core problem: fragmented ownership and static data. Building on a data lake cost more upfront and paid it back in trust - one pipeline, one definition per metric, always current.",
   },
   {
     lead: "Winning over the data owners.",
-    body: "Teams didn’t want to give up “their” spreadsheets — those files were ownership and control. I involved analysts as co-designers of their own dashboards rather than presenting a finished tool, so the platform arrived as theirs, not as a replacement imposed on them.",
+    body: "Teams didn’t want to give up “their” spreadsheets - those files were ownership and control. I involved analysts as co-designers of their own dashboards rather than presenting a finished tool, so the platform arrived as theirs, not as a replacement imposed on them.",
   },
   {
     lead: "One chart system instead of per-team styles.",
-    body: "Letting each team keep familiar chart styles felt friendlier but would have rebuilt the inconsistency we were escaping. A single component-based chart system meant every new dashboard got consistency — and accessibility — for free.",
+    body: "Letting each team keep familiar chart styles felt friendlier but would have rebuilt the inconsistency we were escaping. A single component-based chart system meant every new dashboard got consistency - and accessibility - for free.",
   },
   {
     lead: "Brand palette vs. accessible contrast.",
-    body: "The brand colors weren’t all accessible on data visualizations. Rather than choosing between brand and readability, I extended the palette: adjusted tints for chart use that keep the brand recognizable while meeting contrast requirements — codified in the guide so the trade-off never has to be re-argued.",
+    body: "The brand colors weren’t all accessible on data visualizations. Rather than choosing between brand and readability, I extended the palette: adjusted tints for chart use that keep the brand recognizable while meeting contrast requirements - codified in the guide so the trade-off never has to be re-argued.",
   },
 ];
 
@@ -184,7 +184,7 @@ const OUTCOMES = [
     <span className="font-semibold">
       single, interactive home for company data
     </span>{" "}
-    — visible, explorable, and consistent across the organization.
+    - visible, explorable, and consistent across the organization.
   </>,
   <>
     <span className="font-semibold">Cross-team metrics</span> that previously
@@ -210,7 +210,7 @@ export default function KpiPlatformCaseStudy() {
     <div className="flex">
       <CaseStudySidebar items={KPI_NAV} />
       <main className="min-w-0 flex-1 px-5 pt-6 sm:px-8 lg:px-16 lg:pt-8">
-        {/* Mobile back link — shown only when the sidebar is hidden */}
+        {/* Mobile back link - shown only when the sidebar is hidden */}
         <Link
           href="/"
           className={`mb-6 inline-flex w-fit items-center gap-2 text-[15px] font-semibold text-[#181212] underline-offset-4 transition-colors hover:underline lg:hidden ${FOCUS_RING}`}
@@ -272,7 +272,7 @@ export default function KpiPlatformCaseStudy() {
             qualitatively.
           </motion.p>
 
-          {/* Hero visual — dashboard artboard with animated charts */}
+          {/* Hero visual - dashboard artboard with animated charts */}
           <motion.figure
             variants={fadeUp}
             transition={{ duration: 1.0, ease: EASE }}
@@ -305,13 +305,13 @@ export default function KpiPlatformCaseStudy() {
               className="flex flex-col gap-4 text-[18px] leading-[1.5] text-[#211B1C]"
             >
               <p>
-                The company’s key metrics lived in disconnected Excel files —
+                The company’s key metrics lived in disconnected Excel files -
                 each owned by a different team, each invisible to everyone else.
               </p>
               <p>
                 There was no shared view of performance: leadership couldn’t see
                 the whole picture, and teams couldn’t see each other’s numbers.
-                The data wasn’t interactive — no filtering, no drill-down, no
+                The data wasn’t interactive - no filtering, no drill-down, no
                 exploration. And with every file following its own formats and
                 conventions, even shared data was hard to read and easy to
                 misinterpret.
@@ -325,7 +325,7 @@ export default function KpiPlatformCaseStudy() {
             >
               <KpiProblemVisual />
               <figcaption className="text-[15px] italic text-[#6b6b6b]">
-                Before — metrics scattered across disconnected, team-owned
+                Before - metrics scattered across disconnected, team-owned
                 spreadsheets.
               </figcaption>
             </motion.figure>
@@ -360,7 +360,7 @@ export default function KpiPlatformCaseStudy() {
                 platform’s UX and visual system, to the accessibility guide that
                 let the system scale without me. Data engineers built the data
                 lake; frontend developers implemented the UI; analysts and data
-                owners were my key partners — and my toughest audience to win
+                owners were my key partners - and my toughest audience to win
                 over.
               </p>
               <p className="text-[16px] font-semibold text-[#181212]">
@@ -369,7 +369,7 @@ export default function KpiPlatformCaseStudy() {
             </motion.div>
           </div>
 
-          {/* Principles — numbered cards */}
+          {/* Principles - numbered cards */}
           <motion.ol
             variants={fadeUp}
             transition={{ duration: 0.8, ease: EASE }}
@@ -388,7 +388,7 @@ export default function KpiPlatformCaseStudy() {
                 </span>
                 <p className="text-[18px] leading-[1.45] text-[#211B1C]">
                   <span className="font-semibold text-[#181212]">{p.lead}</span>{" "}
-                  — {p.rest}
+                  - {p.rest}
                 </p>
               </li>
             ))}
@@ -412,7 +412,7 @@ export default function KpiPlatformCaseStudy() {
             The Solution
           </motion.h2>
 
-          {/* Content column — the first block's heading sits on the same
+          {/* Content column - the first block's heading sits on the same
               line as "The Solution", matching every other section. */}
           <div className="flex flex-col gap-16 lg:gap-24">
             {SOLUTIONS.map((s) => (
@@ -441,7 +441,7 @@ export default function KpiPlatformCaseStudy() {
                   <figure className="flex w-full flex-col gap-5">
                     <KpiA11yGuide />
                     <figcaption className="text-[15px] italic text-[#6b6b6b]">
-                      The guide itself — contrast rules, colour-independent
+                      The guide itself - contrast rules, colour-independent
                       encoding, and alt text, page by page.
                     </figcaption>
                   </figure>
@@ -449,7 +449,7 @@ export default function KpiPlatformCaseStudy() {
                   <figure className="flex w-full flex-col gap-5">
                     <KpiStandardsDeck />
                     <figcaption className="text-[15px] italic text-[#6b6b6b]">
-                      The standards deck the system ships with — chart
+                      The standards deck the system ships with - chart
                       types, colour usage, typography, and the colour-pair
                       rules every chart is built against.
                     </figcaption>
@@ -521,7 +521,7 @@ export default function KpiPlatformCaseStudy() {
           >
             <KpiPaletteSystem />
             <figcaption className="text-[15px] italic text-[#6b6b6b]">
-              Extending the brand palette — the tints each chart draws from
+              Extending the brand palette - the tints each chart draws from
               light up in the grid, and each one is checked for contrast
               before it ships.
             </figcaption>
@@ -592,7 +592,7 @@ export default function KpiPlatformCaseStudy() {
           >
             <p>
               Consolidating data is an organizational challenge wearing a
-              technical costume — the hardest design work was earning trust from
+              technical costume - the hardest design work was earning trust from
               the people who owned the spreadsheets.
             </p>
             <p>
@@ -603,7 +603,7 @@ export default function KpiPlatformCaseStudy() {
           </motion.div>
         </motion.section>
 
-        {/* Bottom page-to-page nav — points at Gen AI Engineering Platform while
+        {/* Bottom page-to-page nav - points at Gen AI Engineering Platform while
             Vestige is still coming soon. */}
         <nav className="mt-24 flex items-center justify-between gap-8 pb-[80px] text-[16px] lg:mt-[160px]">
           <Link

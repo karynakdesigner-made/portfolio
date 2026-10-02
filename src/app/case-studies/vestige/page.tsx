@@ -5,7 +5,7 @@ import { CaseStudySidebar } from "@/components/CaseStudySidebar";
 import Link from "next/link";
 
 /* ─────────────────────────────────────────────────────────────
- * Vestige — Case Study
+ * Vestige - Case Study
  * Uses the same layout, sidebar, type, and color palette as the
  * NYT Games and Gen AI Engineering Platform case studies and the main page.
  *   - Body font: Mosvita (inherited)
@@ -13,7 +13,7 @@ import Link from "next/link";
  *   - Section sizes: label 18/22px / body 18px / meta 14–18px
  *   - Section pattern: title (left) + content (right), full-width visuals below
  * App-brand colors (cream/terracotta/navy) appear only inside future
- * screenshots — the page chrome stays in the site palette.
+ * screenshots - the page chrome stays in the site palette.
  * ───────────────────────────────────────────────────────────── */
 
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -71,7 +71,7 @@ function PlaceholderBox({
   );
 }
 
-/* Placeholder figure — the [VISUAL] description doubles as the visible
+/* Placeholder figure - the [VISUAL] description doubles as the visible
    caption so real images can be swapped in by id later. */
 function PlaceholderFigure({
   id,
@@ -123,7 +123,7 @@ function InfoCard({
   );
 }
 
-/* Hairline-divided list row — number (optional), lead, one-line body.
+/* Hairline-divided list row - number (optional), lead, one-line body.
    Shared rhythm for hypotheses, principles, capture flow, solution, craft. */
 function ListRow({
   number,
@@ -158,7 +158,7 @@ function ListRow({
   );
 }
 
-/* Section shell: label (left) + content (right) — NYT Games pattern. */
+/* Section shell: label (left) + content (right) - NYT Games pattern. */
 function Section({
   id,
   label,
@@ -199,7 +199,7 @@ function Section({
   );
 }
 
-/* Pull-quote band — the site's existing large-quote treatment
+/* Pull-quote band - the site's existing large-quote treatment
    (Patience serif, generous spacing). */
 function QuoteBand({ id, quote }: { id: string; quote: string }) {
   return (
@@ -230,7 +230,7 @@ export default function VestigeCaseStudy() {
     <div className="flex">
       <CaseStudySidebar items={VESTIGE_NAV} />
       <main className="min-w-0 flex-1 px-5 pt-6 sm:px-8 lg:px-16 lg:pt-8">
-        {/* Mobile back link — shown only when the sidebar is hidden */}
+        {/* Mobile back link - shown only when the sidebar is hidden */}
         <Link
           href="/"
           className="mb-6 inline-flex w-fit items-center gap-2 text-[15px] font-semibold text-[#181212] underline-offset-4 transition-colors hover:underline lg:hidden"
@@ -270,7 +270,7 @@ export default function VestigeCaseStudy() {
               transition={{ duration: 0.85, ease: EASE }}
               className="text-[15px] italic text-[#6b6b6b]"
             >
-              Jan 2026 — ongoing
+              Jan 2026 - ongoing
             </motion.p>
           </div>
 
@@ -292,7 +292,7 @@ export default function VestigeCaseStudy() {
             </div>
             <div className="flex flex-col gap-2">
               <dt className="text-[14px] text-[#6b6b6b]">Timeline</dt>
-              <dd className="text-[18px] text-[#181212]">2024 — ongoing</dd>
+              <dd className="text-[18px] text-[#181212]">2024 - ongoing</dd>
             </div>
             <div className="flex flex-col gap-2">
               <dt className="text-[14px] text-[#6b6b6b]">Status</dt>
@@ -309,7 +309,7 @@ export default function VestigeCaseStudy() {
             className="flex w-full flex-col gap-5"
           >
             <figcaption className="text-[15px] italic text-[#6b6b6b]">
-              {`Full-width hero — the Capture reveal (viewfinder blurring out, The Milkmaid fading in). App screens keep their own warm brand (cream/terracotta/navy); they sit on the portfolio's white ground inside the same dark rounded hero container used on MemoArt. No text overlay.`}
+              {`Full-width hero - the Capture reveal (viewfinder blurring out, The Milkmaid fading in). App screens keep their own warm brand (cream/terracotta/navy); they sit on the portfolio's white ground inside the same dark rounded hero container used on MemoArt. No text overlay.`}
             </figcaption>
             <PlaceholderBox id="v-hero" ratio="1312 / 720" label="Image placeholder" />
           </motion.figure>
@@ -318,10 +318,10 @@ export default function VestigeCaseStudy() {
         {/* ─── THE INITIAL IDEA ─── */}
         <Section id="idea" label="The Initial Idea">
           <p>
-            {`I kept noticing the same thing in museums: everyone photographs the art, and almost no one ever looks at those photos again. I do it myself. The capture is a reflex — the return never comes.`}
+            {`I kept noticing the same thing in museums: everyone photographs the art, and almost no one ever looks at those photos again. I do it myself. The capture is a reflex - the return never comes.`}
           </p>
           <p>
-            {`That gap felt worth designing for. Not access to art (everything is one search away now), but the fact that the moment a work moves you almost never becomes something you keep. Products this decade moved inward — Oura made sleep a metric, Strava made running a record of you. Art never made that move. And that's how Vestige was born.`}
+            {`That gap felt worth designing for. Not access to art (everything is one search away now), but the fact that the moment a work moves you almost never becomes something you keep. Products this decade moved inward - Oura made sleep a metric, Strava made running a record of you. Art never made that move. And that's how Vestige was born.`}
           </p>
         </Section>
 
@@ -330,7 +330,7 @@ export default function VestigeCaseStudy() {
           id="thesis"
           label="The Thesis"
           after={
-            /* [VISUAL] Statement band — site's standard pull-quote treatment */
+            /* [VISUAL] Statement band - site's standard pull-quote treatment */
             <QuoteBand
               id="v-thesis-quote"
               quote="Taste is a mirror, not a measurement."
@@ -338,7 +338,7 @@ export default function VestigeCaseStudy() {
           }
         >
           <p>
-            {`One idea holds the product together: taste is a mirror, not a measurement. A wearable can track sleep because sleep is real and measurable. Taste isn't — there's no ground truth, so any score would only pretend. Vestige doesn't score you. It reflects you, writing your attention back as prose instead of a chart. That restraint is the design.`}
+            {`One idea holds the product together: taste is a mirror, not a measurement. A wearable can track sleep because sleep is real and measurable. Taste isn't - there's no ground truth, so any score would only pretend. Vestige doesn't score you. It reflects you, writing your attention back as prose instead of a chart. That restraint is the design.`}
           </p>
         </Section>
 
@@ -350,7 +350,7 @@ export default function VestigeCaseStudy() {
             <PlaceholderFigure
               id="v-research-strip"
               ratio="1312 / 440"
-              desc={`Reuse the MemoArt-style annotated research strip — screenshots/clippings with hand-drawn circle highlights, arranged full-width. Same treatment as the existing Foundational Research band.`}
+              desc={`Reuse the MemoArt-style annotated research strip - screenshots/clippings with hand-drawn circle highlights, arranged full-width. Same treatment as the existing Foundational Research band.`}
             />
           }
         >
@@ -383,16 +383,16 @@ export default function VestigeCaseStudy() {
           </motion.div>
         </Section>
 
-        {/* ─── EMPATHIZE — THE RESEARCH ─── */}
+        {/* ─── EMPATHIZE - THE RESEARCH ─── */}
         <Section
           id="empathize"
-          label="Empathize — the research"
+          label="Empathize - the research"
           after={
             <>
               <PlaceholderFigure
                 id="v-guide-revision"
                 ratio="1312 / 560"
-                desc={`Two-part figure. Left: the 13-question guide; right: the 6-question revision, with one compound question shown collapsing into one open question. White ground, dark text, hairline dividers — same table rhythm as the rest of the site.`}
+                desc={`Two-part figure. Left: the 13-question guide; right: the 6-question revision, with one compound question shown collapsing into one open question. White ground, dark text, hairline dividers - same table rhythm as the rest of the site.`}
               />
               <PlaceholderFigure
                 id="v-empathy-map"
@@ -403,10 +403,10 @@ export default function VestigeCaseStudy() {
           }
         >
           <p>
-            {`Ten in-depth interviews with frequent museum-goers — professionals in their early-to-mid thirties across tech, operations, and management — synthesised through empathy and affinity mapping.`}
+            {`Ten in-depth interviews with frequent museum-goers - professionals in their early-to-mid thirties across tech, operations, and management - synthesised through empathy and affinity mapping.`}
           </p>
           <p>
-            {`The first interview guide ran to thirteen questions, many multi-part. In early sessions I watched compound questions raise cognitive load: people answered only the last part, and the data flattened. I rewrote the guide mid-study — six open, single-focus questions. The answers got richer and less prompted.`}
+            {`The first interview guide ran to thirteen questions, many multi-part. In early sessions I watched compound questions raise cognitive load: people answered only the last part, and the data flattened. I rewrote the guide mid-study - six open, single-focus questions. The answers got richer and less prompted.`}
           </p>
           <p>
             {`Lesson learned: respecting a participant's attention is itself a research finding.`}
@@ -418,7 +418,7 @@ export default function VestigeCaseStudy() {
           id="insights"
           label="Key Insights"
           after={
-            /* [VISUAL] Five insight cards — site card style, monochrome */
+            /* [VISUAL] Five insight cards - site card style, monochrome */
             <motion.div
               initial="hidden"
               whileInView="show"
@@ -428,7 +428,7 @@ export default function VestigeCaseStudy() {
               className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
             >
               <InfoCard number="01" title="Read vs. listen">
-                {`Participant 1 reads wall notes and skips audio; Participant 2 only listens — and is blocked when there's no English. Two modes the product has to hold at once.`}
+                {`Participant 1 reads wall notes and skips audio; Participant 2 only listens - and is blocked when there's no English. Two modes the product has to hold at once.`}
               </InfoCard>
               <InfoCard number="02" title="Capture, rarely return">
                 {`Participant 1 revisits photos "sometimes"; Participant 2 shoots "for TikTok" and never reopens them. So the capture moment itself has to deliver.`}
@@ -453,7 +453,7 @@ export default function VestigeCaseStudy() {
         {/* ─── THE PROJECT ─── */}
         <Section id="project" label="The Project">
           <p>
-            {`The mobile app that turns museum visits into a personal record of taste: point your camera at a work, Vestige recognises it and tells you something worth knowing — shaped by what has already moved you. Keep it, and your collection grows; the app's map of your taste sharpens.`}
+            {`The mobile app that turns museum visits into a personal record of taste: point your camera at a work, Vestige recognises it and tells you something worth knowing - shaped by what has already moved you. Keep it, and your collection grows; the app's map of your taste sharpens.`}
           </p>
         </Section>
 
@@ -462,7 +462,7 @@ export default function VestigeCaseStudy() {
           id="personas"
           label="Personas"
           after={
-            /* [VISUAL] Two persona cards side by side — site persona slots */
+            /* [VISUAL] Two persona cards side by side - site persona slots */
             <motion.div
               initial="hidden"
               whileInView="show"
@@ -471,20 +471,20 @@ export default function VestigeCaseStudy() {
               transition={{ duration: 0.9, ease: EASE }}
               className="grid grid-cols-1 gap-4 md:grid-cols-2"
             >
-              <InfoCard title="Marta — the Knowledge Builder">
-                {`"A museum is cultural investment — I want to understand a style, not just have seen it." She reads, revisits, organizes. Wants depth; rejects gimmicks.`}
+              <InfoCard title="Marta - the Knowledge Builder">
+                {`"A museum is cultural investment - I want to understand a style, not just have seen it." She reads, revisits, organizes. Wants depth; rejects gimmicks.`}
               </InfoCard>
-              <InfoCard title="Tomek — the Experience Seeker">
-                {`"I'm here to enjoy it — but I hate not knowing what I'm looking at." He listens rather than reads, shoots and forgets, learns passively. Rejects anything forced.`}
+              <InfoCard title="Tomek - the Experience Seeker">
+                {`"I'm here to enjoy it - but I hate not knowing what I'm looking at." He listens rather than reads, shoots and forgets, learns passively. Rejects anything forced.`}
               </InfoCard>
             </motion.div>
           }
         >
           <p>
-            {`From the interviews, two groups emerged — and they sit on the axis that defines the feature set: one builds, one experiences.`}
+            {`From the interviews, two groups emerged - and they sit on the axis that defines the feature set: one builds, one experiences.`}
           </p>
           <p>
-            {`The core loop — capture → instant context → an accruing taste map — costs zero effort but rewards anyone who engages. One design, both users.`}
+            {`The core loop - capture → instant context → an accruing taste map - costs zero effort but rewards anyone who engages. One design, both users.`}
           </p>
         </Section>
 
@@ -536,12 +536,12 @@ export default function VestigeCaseStudy() {
             <PlaceholderFigure
               id="v-ia-map"
               ratio="4 / 3"
-              desc={`The IA node map (from FigJam) — full tree with missing states tagged in red. Caption: "Design is the states a demo skips." Keep the red tags; the honesty is the point.`}
+              desc={`The IA node map (from FigJam) - full tree with missing states tagged in red. Caption: "Design is the states a demo skips." Keep the red tags; the honesty is the point.`}
             />
           }
         >
           <p>
-            {`I mapped the whole product as one tree to find the holes. It showed something uncomfortable: the polished prototype was a tour of the happy path. Almost every gap was a state or a failure — recognition failure, empty states, offline, camera denied, the read/listen toggle, notes, settings.`}
+            {`I mapped the whole product as one tree to find the holes. It showed something uncomfortable: the polished prototype was a tour of the happy path. Almost every gap was a state or a failure - recognition failure, empty states, offline, camera denied, the read/listen toggle, notes, settings.`}
           </p>
         </Section>
 
@@ -553,12 +553,12 @@ export default function VestigeCaseStudy() {
             <PlaceholderFigure
               id="v-capture-strip"
               ratio="1312 / 380"
-              desc={`Eight-screen wireframe strip, low-fi, in one horizontal row. Missing-state screens tagged. Low fidelity is deliberate — this block is about reasoning, not polish.`}
+              desc={`Eight-screen wireframe strip, low-fi, in one horizontal row. Missing-state screens tagged. Low fidelity is deliberate - this block is about reasoning, not polish.`}
             />
           }
         >
           <p>
-            {`Capture is the spine of the app, so it's the flow I resolved first — every screen, every state.`}
+            {`Capture is the spine of the app, so it's the flow I resolved first - every screen, every state.`}
           </p>
           <motion.div
             initial="hidden"
@@ -598,7 +598,7 @@ export default function VestigeCaseStudy() {
             />
           </motion.div>
           <p>
-            {`About 30% of this flow existed as the built happy path. The other 70% — failures and system states — is what completes the product, and it's exactly the layer that lifts the UI from demo to craft.`}
+            {`About 30% of this flow existed as the built happy path. The other 70% - failures and system states - is what completes the product, and it's exactly the layer that lifts the UI from demo to craft.`}
           </p>
         </Section>
 
@@ -610,7 +610,7 @@ export default function VestigeCaseStudy() {
             <PlaceholderFigure
               id="v-prototype-tour"
               ratio="1312 / 720"
-              desc={`Prototype tour — nine screens, three per flow, each with a one-line caption. Full-fidelity app screens on the portfolio's white ground; this is the payoff block, give it room.`}
+              desc={`Prototype tour - nine screens, three per flow, each with a one-line caption. Full-fidelity app screens on the portfolio's white ground; this is the payoff block, give it room.`}
             />
           }
         >
@@ -623,7 +623,7 @@ export default function VestigeCaseStudy() {
           >
             <ListRow
               title="Onboarding"
-              body={`A welcome, a swipe calibration on curated works (keep or pass), and a first reading of your taste — in prose, never a score.`}
+              body={`A welcome, a swipe calibration on curated works (keep or pass), and a first reading of your taste - in prose, never a score.`}
             />
             <ListRow
               title="Capture"
@@ -631,7 +631,7 @@ export default function VestigeCaseStudy() {
             />
             <ListRow
               title="Collection & Taste Map"
-              body={`An editorial catalogue of what has held you, and a constellation linking works by shared thread — a century, a medium, a mood — with a prose reading underneath.`}
+              body={`An editorial catalogue of what has held you, and a constellation linking works by shared thread - a century, a medium, a mood - with a prose reading underneath.`}
             />
           </motion.div>
         </Section>
@@ -644,7 +644,7 @@ export default function VestigeCaseStudy() {
             <PlaceholderFigure
               id="v-motion-timeline"
               ratio="1312 / 420"
-              desc={`Motion timeline of the capture reveal — a horizontal staggered-timing diagram in the site's monochrome style, app-brand colors appearing only inside the screen thumbnails.`}
+              desc={`Motion timeline of the capture reveal - a horizontal staggered-timing diagram in the site's monochrome style, app-brand colors appearing only inside the screen thumbnails.`}
             />
           }
         >
@@ -679,7 +679,7 @@ export default function VestigeCaseStudy() {
           id="scope"
           label="Scope as a Design Decision"
           after={
-            /* [VISUAL] Simple two-column table — hairline rules, no fills */
+            /* [VISUAL] Simple two-column table - hairline rules, no fills */
             <motion.figure
               initial="hidden"
               whileInView="show"
@@ -731,13 +731,13 @@ export default function VestigeCaseStudy() {
           }
         >
           <p>
-            {`In v1 — open-collection recognition, capture → context, a local collection, the taste map, read/listen. Local-first: no backend, near-zero cost.`}
+            {`In v1 - open-collection recognition, capture → context, a local collection, the taste map, read/listen. Local-first: no backend, near-zero cost.`}
           </p>
           <p>
-            {`Not in v1 — universal recognition, room-level location, social, live theming, notifications.`}
+            {`Not in v1 - universal recognition, room-level location, social, live theming, notifications.`}
           </p>
           <p>
-            {`The biggest cut — open collections only — does triple duty: it ships, it stays public-domain, and it turns the failure path into a designed feature instead of a bug.`}
+            {`The biggest cut - open collections only - does triple duty: it ships, it stays public-domain, and it turns the failure path into a designed feature instead of a bug.`}
           </p>
         </Section>
 
@@ -746,7 +746,7 @@ export default function VestigeCaseStudy() {
           id="limitations"
           label="Limitations & Next"
           after={
-            /* [VISUAL] Quiet caveat panel — 1px border, low emphasis */
+            /* [VISUAL] Quiet caveat panel - 1px border, low emphasis */
             <motion.div
               id="v-caveat"
               initial="hidden"
@@ -766,7 +766,7 @@ export default function VestigeCaseStudy() {
           }
         >
           <p>
-            {`The cohort was deliberately narrow — frequent visitors, early-to-mid-thirties professionals — so these findings are directional, not conclusive.`}
+            {`The cohort was deliberately narrow - frequent visitors, early-to-mid-thirties professionals - so these findings are directional, not conclusive.`}
           </p>
           <p>
             {`Next: widen the sample to occasional visitors, students, and older adults; test whether the taste map actually reads; and pressure-test recognition and offline behaviour in a real gallery.`}
@@ -778,7 +778,7 @@ export default function VestigeCaseStudy() {
           id="reflection"
           label="Reflection"
           after={
-            /* [VISUAL] Closing pull quote — site's standard large-quote treatment */
+            /* [VISUAL] Closing pull quote - site's standard large-quote treatment */
             <QuoteBand
               id="v-closing-quote"
               quote="Taste is a mirror, not a measurement."
@@ -786,14 +786,14 @@ export default function VestigeCaseStudy() {
           }
         >
           <p>
-            {`The hardest decision was the smallest: refusing to score taste. Every instinct pushes toward a number — it's legible, it's shareable, it demos well. But taste has no sensor, and a fake metric would betray the whole premise.`}
+            {`The hardest decision was the smallest: refusing to score taste. Every instinct pushes toward a number - it's legible, it's shareable, it demos well. But taste has no sensor, and a fake metric would betray the whole premise.`}
           </p>
           <p>
             {`The real value wasn't in the screens that demo well. It was in the states a demo skips, the interview guide I rewrote mid-study, and the one scope cut that made an impossible feature shippable. Judgment lives in the parts nobody photographs.`}
           </p>
         </Section>
 
-        {/* Bottom page-to-page nav — matches NYT Games */}
+        {/* Bottom page-to-page nav - matches NYT Games */}
         <nav className="mt-12 lg:mt-[100px] flex items-center justify-between gap-8 pb-[80px] text-[16px]">
           <Link
             href="/"

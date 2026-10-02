@@ -7,7 +7,7 @@ import { Hero } from "@/components/Hero";
 import Link from "next/link";
 
 /* True only at lg+ (≥1024px). Starts false (mobile-first) to avoid hydration
-   mismatch, then resolves on mount. Used to gate the sticky-stack animation —
+   mismatch, then resolves on mount. Used to gate the sticky-stack animation -
    on mobile the cards are tall single-column, so we render them as a plain
    static stack instead of pinning/frosting. */
 function useIsDesktop() {
@@ -52,13 +52,13 @@ const testimonialReveal = {
 
 
 /* Client-side navigation for the case-study cards. motion.a rendered a
-   plain anchor, so every card click was a full document load — new JS,
+   plain anchor, so every card click was a full document load - new JS,
    lost scroll position. Created once at module scope: motion.create()
    builds a component type, and calling it in render would remount the
    card on every frame. */
 const MotionLink = motion.create(Link);
 
-/* ─── Case study card artwork — single composite image per case study ─── */
+/* ─── Case study card artwork - single composite image per case study ─── */
 
 function GenAiEngineeringVisual() {
   return (
@@ -72,7 +72,7 @@ function GenAiEngineeringVisual() {
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src="/figma/case-gep-card.png"
-        alt="Gen AI Engineering Platform — Capgemini's internal platform, shown as a row of AI provider logos above a Studio Management screenshot with a lavender folder caption."
+        alt="Gen AI Engineering Platform - Capgemini's internal platform, shown as a row of AI provider logos above a Studio Management screenshot with a lavender folder caption."
         className="block h-auto w-full"
       />
     </MotionLink>
@@ -91,7 +91,7 @@ function NytGamesVisual() {
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src="/figma/case-nyt-card.png"
-        alt="NYT Games App — collage of game icons (Crossword, Wordle, Connections, Spelling Bee, Letter Boxed) with the iPhone home screen and a yellow folder caption."
+        alt="NYT Games App - collage of game icons (Crossword, Wordle, Connections, Spelling Bee, Letter Boxed) with the iPhone home screen and a yellow folder caption."
         className="block h-auto w-full"
       />
     </MotionLink>
@@ -110,7 +110,7 @@ function VestigeVisual() {
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src="/figma/Vestige.png"
-        alt="Vestige — three iPhone screens showing the taste summary, the camera viewfinder pointed at a Van Gogh self-portrait, and an artwork story page, with a peach folder caption reading 'Point at any artwork. A story in the moment. A collection that grows. A taste map that sharpens.'"
+        alt="Vestige - three iPhone screens showing the taste summary, the camera viewfinder pointed at a Van Gogh self-portrait, and an artwork story page, with a peach folder caption reading 'Point at any artwork. A story in the moment. A collection that grows. A taste map that sharpens.'"
         className="block h-auto w-full"
       />
     </MotionLink>
@@ -129,7 +129,7 @@ function KpiPlatformVisual() {
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src="/figma/KPI Platform.png"
-        alt="KPI Platform — On Time Delivery dashboard on a desktop monitor with monthly and daily delivery charts, and a grey caption card reading 'One platform, whole company. Metrics by level. Access by group. Clarity for everyone.'"
+        alt="KPI Platform - On Time Delivery dashboard on a desktop monitor with monthly and daily delivery charts, and a grey caption card reading 'One platform, whole company. Metrics by level. Access by group. Clarity for everyone.'"
         className="block h-auto w-full"
       />
     </MotionLink>
@@ -167,7 +167,7 @@ const CASE_STUDIES: CaseStudy[] = [
     year: "Mobile App",
     title: "NYT Games App",
     summary:
-      "Improving the experience behind The Crossword, Spelling Bee, and the full NYT Games suite — onboarding experiments, social features, and accessibility at scale. 2024 Apple Design Award winner (Delight and Fun).",
+      "Improving the experience behind The Crossword, Spelling Bee, and the full NYT Games suite - onboarding experiments, social features, and accessibility at scale. 2024 Apple Design Award winner (Delight and Fun).",
     meta: [
       { label: "Client", value: "The New York Times" },
       { label: "Role", value: "Senior Product Designer" },
@@ -181,7 +181,7 @@ const CASE_STUDIES: CaseStudy[] = [
     year: "Web Application",
     title: "KPI Platform",
     summary:
-      "From scattered spreadsheets to a single source of truth — a branded, accessible analytics platform unifying every KPI in one interactive view.",
+      "From scattered spreadsheets to a single source of truth - a branded, accessible analytics platform unifying every KPI in one interactive view.",
     meta: [
       { label: "Client", value: "Top global nuclear operator" },
       { label: "Role", value: "Senior User Experience Designer" },
@@ -195,7 +195,7 @@ const CASE_STUDIES: CaseStudy[] = [
     year: "Mobile App",
     title: "Vestige",
     summary:
-      "Treating art taste as a personal metric — capture flows, a taste map, and a private catalogue of what moved you. From ten interviews to a working prototype.",
+      "Treating art taste as a personal metric - capture flows, a taste map, and a private catalogue of what moved you. From ten interviews to a working prototype.",
     meta: [
       { label: "Ownership", value: "Personal project" },
       { label: "Role", value: "Senior User Experience Designer" },
@@ -225,7 +225,7 @@ function Spread({
       transition={{ staggerChildren: 0.08 }}
       className="grid grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] items-start gap-20 rounded-[24px] border border-[#ececec] bg-[#f8f8f8] p-6 sm:rounded-[32px] sm:p-8 lg:p-12 max-[900px]:grid-cols-1 max-[900px]:gap-8"
     >
-      {/* Left column — text */}
+      {/* Left column - text */}
       <motion.div
         variants={fadeUp}
         transition={{ duration: 0.7, ease: EASE }}
@@ -271,14 +271,14 @@ function Spread({
         )}
       </motion.div>
 
-      {/* Right column — existing artwork, natural size, centered */}
+      {/* Right column - existing artwork, natural size, centered */}
       <div className="flex w-full items-center justify-center">{visual}</div>
     </motion.article>
   );
 }
 
 /* One card in the sticky stack. Every card except the last frosts (scales down,
-   blurs, and whitens) as the next card climbs up and covers it — desktop only.
+   blurs, and whitens) as the next card climbs up and covers it - desktop only.
    Each card measures its own document position so the frost range stays correct
    no matter how many cards there are or how tall their visuals get. */
 function StackedCard({
@@ -293,7 +293,7 @@ function StackedCard({
   isDesktop: boolean;
 }) {
   const ref = useRef<HTMLDivElement>(null);
-  // Window scroll (pixels) — the default useScroll mode, which is reliable.
+  // Window scroll (pixels) - the default useScroll mode, which is reliable.
   // (useScroll with a `target` ref silently no-ops in this setup.)
   const { scrollY } = useScroll();
   // Pixel scroll range over which this card frosts: from the moment it pins
@@ -352,7 +352,7 @@ function CaseStudies() {
       <h2 className="z-30 bg-white py-3 text-[18px] font-semibold leading-[1.3] text-[#181212] sm:text-[22px] lg:sticky lg:top-0">
         Case Studies
       </h2>
-      {/* Non-sticky track — cards pin inside it. Each card pins 24px lower than
+      {/* Non-sticky track - cards pin inside it. Each card pins 24px lower than
           the previous one so the stack peeks as it builds up. */}
       <div className="relative mt-6 flex flex-col gap-6">
         {CASE_STUDIES.map((study, i) => (
@@ -469,7 +469,7 @@ function About() {
           <span className="font-semibold">
             I think in systems and stay close to research
           </span>
-          , but mostly I&apos;m just deeply curious — the kind of designer who
+          , but mostly I&apos;m just deeply curious - the kind of designer who
           keeps tinkering long after the workday ends.{" "}
           <span className="font-semibold">
             AI is what&apos;s got my attention these days
@@ -543,7 +543,7 @@ function Experience() {
         <ExperienceItem
           period="2019"
           title="UX/UI Designer"
-          company="Arounda — Digital Product Design Agency"
+          company="Arounda - Digital Product Design Agency"
           companyHref="https://arounda.agency/"
         />
         <ExperienceItem
@@ -656,7 +656,7 @@ function Footer() {
         viewport={{ once: true, margin: "-10%" }}
         transition={{ staggerChildren: 0.12 }}
       >
-        {/* Contact card — neutral light grey, no inline footer row */}
+        {/* Contact card - neutral light grey, no inline footer row */}
         <motion.div
           initial={{ opacity: 0, scale: 0.98 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -665,7 +665,7 @@ function Footer() {
           className="flex w-full flex-col gap-6 rounded-[24px] border border-[#ececec] bg-[#f8f8f8] p-6 sm:rounded-[32px] sm:p-8"
         >
           <p className="text-[20px] font-semibold leading-[1.3] text-[#211B1C] sm:text-[28px]">
-            Always happy to connect — whether it&apos;s a new opportunity or
+            Always happy to connect - whether it&apos;s a new opportunity or
             just a good conversation.
           </p>
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -700,7 +700,7 @@ function Footer() {
         </motion.div>
       </motion.div>
 
-      {/* Slim bottom row — outside the card, right-aligned with the card above. */}
+      {/* Slim bottom row - outside the card, right-aligned with the card above. */}
       <div className="mt-6 flex justify-end text-[13px] sm:text-[14px]">
         <p className="text-right text-[#6b6b6b]">
           2026 © Karina Kravchenko. Build with Claude Code. All rights reserved.
@@ -715,7 +715,7 @@ export default function Home() {
     <div className="flex">
       <Sidebar />
       <main id="top" className="min-w-0 flex-1 px-5 pt-6 sm:px-8 lg:px-16 lg:pt-8">
-        {/* Mobile logo header — shown only when the sidebar is hidden */}
+        {/* Mobile logo header - shown only when the sidebar is hidden */}
         <Link
           href="/"
           style={{ fontFamily: "var(--font-patience), serif" }}

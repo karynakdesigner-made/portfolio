@@ -4,7 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useReducedMotion } from "motion/react";
 
 /* ─────────────────────────────────────────────────────────────
- * KPI Platform — the chart palette, and the charts it produces.
+ * KPI Platform - the chart palette, and the charts it produces.
  *
  * Three things happen at once, which is the whole argument of the
  * decision this illustrates: the palette is one grid, every chart is
@@ -12,7 +12,7 @@ import { useReducedMotion } from "motion/react";
  *
  * The grid is rebuilt in HTML rather than dropped in as pallete.svg.
  * The exported palette has its labels outlined as paths, so nothing in
- * it is addressable — and the point of the visual is to light up the
+ * it is addressable - and the point of the visual is to light up the
  * nine-or-so cells a given chart actually draws from. The hexes below
  * are lifted straight off that export's swatch rects, so the grid is
  * the same artefact, just animatable.
@@ -77,7 +77,7 @@ PALETTE.forEach((g) =>
 
 /* ── Contrast ───────────────────────────────────────────────────
  * WCAG 2.1 relative luminance. Chart marks are graphical objects, so
- * the bar they have to clear is 1.4.11 Non-text Contrast at 3:1 —
+ * the bar they have to clear is 1.4.11 Non-text Contrast at 3:1 -
  * not the 4.5:1 that applies to body text.
  * ───────────────────────────────────────────────────────────── */
 
@@ -102,7 +102,7 @@ function contrast(hex: string, against = "#FFFFFF") {
 }
 
 /* ── Charts ─────────────────────────────────────────────────────
- * The real Figma exports. `ratio` is each artboard's own aspect — the
+ * The real Figma exports. `ratio` is each artboard's own aspect - the
  * stage animates to it rather than letterboxing everything into one
  * box, because a 600-wide table in a 1224-wide frame reads as a
  * mistake rather than as a different chart type.
@@ -149,7 +149,7 @@ function tokensUsed(markup: string) {
  * Lifted from the view switcher, and for the same reason: bars carry
  * their own transform attribute, so animating the rect would fling it
  * to the origin. Each one gets a plain <g> wrapper to scale instead.
- * Charts with no shared baseline — the table, the gauge — fail the
+ * Charts with no shared baseline - the table, the gauge - fail the
  * guard and are left alone rather than distorted.
  * ───────────────────────────────────────────────────────────── */
 function growBars(host: HTMLElement, reduce: boolean) {
@@ -169,7 +169,7 @@ function growBars(host: HTMLElement, reduce: boolean) {
     }
   });
 
-  /* The baseline is the bottom edge the most rects share — the lowest
+  /* The baseline is the bottom edge the most rects share - the lowest
      edge would pick the legend swatches instead. */
   const edges = new Map<number, number>();
   boxes.forEach((b) => {
@@ -216,7 +216,7 @@ function growBars(host: HTMLElement, reduce: boolean) {
       return;
     }
 
-    /* Forced reflow rather than rAF — rAF is throttled in a background
+    /* Forced reflow rather than rAF - rAF is throttled in a background
        tab, and a reader arriving that way would find bars at zero. */
     node.style.transition = "none";
     node.style.transform = "scaleY(0)";
@@ -260,7 +260,7 @@ export function KpiPaletteSystem() {
     return () => io.disconnect();
   }, []);
 
-  /* Fetch only once the visual is on screen — these exports carry
+  /* Fetch only once the visual is on screen - these exports carry
      outlined type and run a few hundred KB each. */
   useEffect(() => {
     if (!inView) return;
@@ -346,7 +346,7 @@ export function KpiPaletteSystem() {
           <div className="flex gap-3 sm:gap-5">
             {/* Tint scale, once down the left. Mirrors the swatch stack's
                 own row height and gap rather than distributing over the
-                column — the group name sits below the swatches, and
+                column - the group name sits below the swatches, and
                 justify-between would drag every label a row out of true. */}
             <div className="flex shrink-0 flex-col gap-[3px] self-start">
               {LEVELS.map((l) => (
@@ -379,7 +379,7 @@ export function KpiPaletteSystem() {
                                    getting outlined. A white ring cuts them
                                    free of their neighbours without adding a
                                    colour of its own, and the elevation does
-                                   the pointing — an ink outline fought the
+                                   the pointing - an ink outline fought the
                                    swatch it was meant to single out. */
                                 transform: on
                                   ? "translateY(-1px) scale(1.04)"
@@ -429,7 +429,7 @@ export function KpiPaletteSystem() {
                     : `kpsFade ${FADE_MS}ms ${EASE} both`,
                 }}
                 role="img"
-                aria-label={`${chart.label} — ${chart.kind}, drawn from the chart palette.`}
+                aria-label={`${chart.label} - ${chart.kind}, drawn from the chart palette.`}
                 dangerouslySetInnerHTML={markup ? { __html: markup } : undefined}
               />
             </div>
@@ -444,7 +444,7 @@ export function KpiPaletteSystem() {
               <span className="text-[11px] text-[#6b6b6b]">on white</span>
             </div>
             <p className="mt-1 text-[11px] leading-[1.45] text-[#6b6b6b]">
-              WCAG 1.4.11 non-text contrast — chart marks need {THRESHOLD}:1.
+              WCAG 1.4.11 non-text contrast - chart marks need {THRESHOLD}:1.
             </p>
 
             <ul className="mt-3 flex flex-col gap-2">
@@ -500,7 +500,7 @@ export function KpiPaletteSystem() {
         {/* ── Controls ──────────────────────────────────────── */}
         <div className="flex flex-col items-center gap-3">
           <span className="text-[13px] text-[#181212] sm:text-[14px]">
-            {chart.label} — <span className="text-[#6b6b6b]">{chart.kind}</span>
+            {chart.label} - <span className="text-[#6b6b6b]">{chart.kind}</span>
           </span>
 
           <div className="flex flex-wrap items-center justify-center gap-2">

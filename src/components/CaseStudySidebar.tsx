@@ -117,7 +117,7 @@ export function CaseStudySidebar({ items = DEFAULT_ITEMS }: { items?: NavItem[] 
         </nav>
       </aside>
 
-      {/* Mobile wayfinding — slides in once the reader is past the hero */}
+      {/* Mobile wayfinding - slides in once the reader is past the hero */}
       <nav
         aria-label="Sections"
         className={

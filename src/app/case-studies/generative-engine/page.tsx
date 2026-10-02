@@ -8,7 +8,7 @@ import { Tilt3D } from "@/components/Tilt3D";
 import Link from "next/link";
 
 /* ─────────────────────────────────────────────────────────────
- * Studio Playground showcase — cycles through 4 stages:
+ * Studio Playground showcase - cycles through 4 stages:
  *   1. Welcome (Capgemini landing)
  *   2. Studio Playground empty state
  *   3. Same empty state + typewriter in the input field
@@ -56,7 +56,7 @@ const STUDIO_STAGES: { type: StudioStage; duration: number }[] = [
 
 const USER_QUESTION = "Help me set up a Python client for the generative API";
 
-/* AI response — appears line by line. Each entry is one rendered row.
+/* AI response - appears line by line. Each entry is one rendered row.
    Mix of text rows and code rows, in the order they animate in. */
 const AI_RESPONSE_LINES: { type: "text" | "code" | "blank"; content?: string }[] = [
   { type: "text", content: "Here's a starter for your Python client. The Gen AI Engineering Platform exposes an OpenAI-compatible endpoint:" },
@@ -93,7 +93,7 @@ function StudioPlaygroundShowcase() {
   return (
     <div className="relative w-full overflow-hidden rounded-[24px] bg-[#f8f8f8] p-4 sm:p-8 lg:p-12">
       <div className="relative aspect-[1440/1024] w-full overflow-hidden rounded-[12px] bg-white">
-        {/* Welcome — page-loading style entrance */}
+        {/* Welcome - page-loading style entrance */}
         <motion.img
           src="/figma/studio-welcome.webp"
           alt=""
@@ -151,7 +151,7 @@ function StudioPlaygroundShowcase() {
           </motion.div>
         )}
 
-        {/* Conversation chat overlay — appears in chat area, sidebar never moves */}
+        {/* Conversation chat overlay - appears in chat area, sidebar never moves */}
         {type === "conversation" && <ChatThread />}
       </div>
     </div>
@@ -169,7 +169,7 @@ function ChatThread() {
         transition={{ duration: 0.4, ease: "easeOut" }}
       />
 
-      {/* User message bubble — appears first */}
+      {/* User message bubble - appears first */}
       <motion.div
         className="absolute right-[10%] top-[7%] max-w-[55%] rounded-[8px] bg-[#f3f3f3] px-[1.2%] py-[0.8%] text-[12px] leading-[1.45] text-[#181212]"
         initial={{ opacity: 0, y: 8 }}
@@ -179,7 +179,7 @@ function ChatThread() {
         {USER_QUESTION}
       </motion.div>
 
-      {/* AI response — model header + line-by-line reveal */}
+      {/* AI response - model header + line-by-line reveal */}
       <motion.div
         className="absolute left-[14%] top-[22%] flex flex-col gap-[0.4%] text-[12px] leading-[1.5] text-[#181212]"
         initial="hidden"
@@ -244,11 +244,11 @@ type BeforeCard = {
 };
 
 const BEFORE_CARDS: BeforeCard[] = [
-  { src: "gep-old-chat.png", label: "Before — chat view", left: "2%", top: "6%", rotate: -4, floatDuration: 6, yAmp: -6, delay: 0, hoverX: 303, hoverY: 136 },
-  { src: "gep-old-grid.png", label: "Before — agent grid", right: "3%", top: "3%", rotate: 5, floatDuration: 7, yAmp: -8, delay: 0.6, hoverX: -293, hoverY: 152 },
-  { src: "gep-old-history.png", label: "Before — asset collection", left: "32%", top: "34%", rotate: -2, floatDuration: 5.5, yAmp: -5, delay: 0.3, hoverX: 10, hoverY: -17 },
-  { src: "gep-old-studio.png", label: "Before — Studio playground", left: "4%", bottom: "4%", rotate: 4, floatDuration: 6.5, yAmp: -7, delay: 1.0, hoverX: 283, hoverY: -147 },
-  { src: "gep-old-plans.png", label: "Before — plans selection", right: "3%", bottom: "5%", rotate: -5, floatDuration: 7.5, yAmp: -6, delay: 0.9, hoverX: -293, hoverY: -141 },
+  { src: "gep-old-chat.png", label: "Before - chat view", left: "2%", top: "6%", rotate: -4, floatDuration: 6, yAmp: -6, delay: 0, hoverX: 303, hoverY: 136 },
+  { src: "gep-old-grid.png", label: "Before - agent grid", right: "3%", top: "3%", rotate: 5, floatDuration: 7, yAmp: -8, delay: 0.6, hoverX: -293, hoverY: 152 },
+  { src: "gep-old-history.png", label: "Before - asset collection", left: "32%", top: "34%", rotate: -2, floatDuration: 5.5, yAmp: -5, delay: 0.3, hoverX: 10, hoverY: -17 },
+  { src: "gep-old-studio.png", label: "Before - Studio playground", left: "4%", bottom: "4%", rotate: 4, floatDuration: 6.5, yAmp: -7, delay: 1.0, hoverX: 283, hoverY: -147 },
+  { src: "gep-old-plans.png", label: "Before - plans selection", right: "3%", bottom: "5%", rotate: -5, floatDuration: 7.5, yAmp: -6, delay: 0.9, hoverX: -293, hoverY: -141 },
 ];
 
 function BeforeCollage() {
@@ -386,7 +386,7 @@ function Surface({
         </motion.div>
       </div>
 
-      {/* Visuals — full content width */}
+      {/* Visuals - full content width */}
       <motion.div
         variants={fadeUp}
         transition={{ duration: 0.7, ease: EASE }}
@@ -398,14 +398,14 @@ function Surface({
               <figcaption className="text-[15px] italic text-[#6b6b6b]">{v.caption}</figcaption>
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
                 {["Template", "Configure", "Preview / Publish"].map((step, j) => (
-                  <PlaceholderBox key={j} ratio="320 / 240" label={`Step ${j + 1} — ${step}`} />
+                  <PlaceholderBox key={j} ratio="320 / 240" label={`Step ${j + 1} - ${step}`} />
                 ))}
               </div>
             </figure>
           ) : (
             <figure key={i} className="flex w-full flex-col gap-5">
               <figcaption className="text-[15px] italic text-[#6b6b6b]">{v.caption}</figcaption>
-              <PlaceholderBox ratio={v.ratio} label={`Visual placeholder — ${title}`} />
+              <PlaceholderBox ratio={v.ratio} label={`Visual placeholder - ${title}`} />
             </figure>
           )
         )}
@@ -414,7 +414,7 @@ function Surface({
   );
 }
 
-/* ───── Generic step carousel — large preview on top, clickable thumbnails
+/* ───── Generic step carousel - large preview on top, clickable thumbnails
    below. Hovering the hero reveals prev/next arrows; clicking the left or
    right half of the hero steps through the sequence like a carousel.
    Thumbnails still jump straight to a given step; active thumb gets a
@@ -451,10 +451,10 @@ function StepCarousel({ steps }: { steps: readonly CarouselStep[] }) {
 
   return (
     <div className="flex w-full flex-col gap-8">
-      {/* Hero preview — crossfades when the active step changes. The aspect
+      {/* Hero preview - crossfades when the active step changes. The aspect
           ratio is locked to the source images (5760×4096 ≈ 45/32) so the
           container size never shifts between transitions. Tilt3D adds the
-          subtle 3D hover (main visual only — thumbnails stay flat). */}
+          subtle 3D hover (main visual only - thumbnails stay flat). */}
       <div className="relative w-full overflow-hidden rounded-[24px] bg-[#f8f8f8] p-4 sm:p-8 lg:p-12">
         <Tilt3D className="w-full">
           <div className="group/hero relative w-full overflow-hidden rounded-[12px] aspect-[5760/4096]">
@@ -476,7 +476,7 @@ function StepCarousel({ steps }: { steps: readonly CarouselStep[] }) {
 
             {steps.length > 1 && (
               <>
-                {/* Left half — click to go to the previous step */}
+                {/* Left half - click to go to the previous step */}
                 <button
                   type="button"
                   onClick={goPrev}
@@ -488,7 +488,7 @@ function StepCarousel({ steps }: { steps: readonly CarouselStep[] }) {
                   </span>
                 </button>
 
-                {/* Right half — click to go to the next step */}
+                {/* Right half - click to go to the next step */}
                 <button
                   type="button"
                   onClick={goNext}
@@ -505,7 +505,7 @@ function StepCarousel({ steps }: { steps: readonly CarouselStep[] }) {
         </Tilt3D>
       </div>
 
-      {/* Thumbnail strip — clickable buttons that select which step shows above */}
+      {/* Thumbnail strip - clickable buttons that select which step shows above */}
       <div className={`grid w-full gap-5 ${gridCols}`}>
         {steps.map((step, i) => {
           const isActive = i === activeIdx;
@@ -558,17 +558,17 @@ const CREATE_AGENT_STEPS: readonly CarouselStep[] = [
   {
     src: "/figma/create-agent-step1.webp",
     caption: "Identity",
-    alt: "Create Agent — Step 1: Agent Info. Name, title, descriptions and avatar grid.",
+    alt: "Create Agent - Step 1: Agent Info. Name, title, descriptions and avatar grid.",
   },
   {
     src: "/figma/create-agent-step2.webp",
     caption: "Configuration",
-    alt: "Create Agent — Step 2: Agent Config.",
+    alt: "Create Agent - Step 2: Agent Config.",
   },
   {
     src: "/figma/create-agent-step3.webp",
     caption: "Access",
-    alt: "Create Agent — Step 3: User Management.",
+    alt: "Create Agent - Step 3: User Management.",
   },
 ];
 
@@ -576,17 +576,17 @@ const STUDIO_MGMT_STEPS: readonly CarouselStep[] = [
   {
     src: "/figma/gep-studio-users.webp",
     caption: "Users",
-    alt: "Studio Management — User Management tab showing the monthly budget meter, cost breakdown cards, and a Studio Users table with roles, budgets, usage bars, and a Catherine Lee row in red indicating a 100% budget overflow.",
+    alt: "Studio Management - User Management tab showing the monthly budget meter, cost breakdown cards, and a Studio Users table with roles, budgets, usage bars, and a Catherine Lee row in red indicating a 100% budget overflow.",
   },
   {
     src: "/figma/gep-studio-keys.webp",
     caption: "Keys",
-    alt: "Studio Management — API Keys tab showing Studio API Keys and User Keys tables with scope, budget, usage, expiry, status, and a context menu with Change budget / Regenerate key / Delete key.",
+    alt: "Studio Management - API Keys tab showing Studio API Keys and User Keys tables with scope, budget, usage, expiry, status, and a context menu with Change budget / Regenerate key / Delete key.",
   },
   {
     src: "/figma/gep-studio-agents.webp",
     caption: "Agents",
-    alt: "Studio Management — Studio Agents tab showing the Studio (Custom) Agents table with agent name, role, and cumulative usage.",
+    alt: "Studio Management - Studio Agents tab showing the Studio (Custom) Agents table with agent name, role, and cumulative usage.",
   },
 ];
 
@@ -595,7 +595,7 @@ export default function GenAiEngineeringCaseStudy() {
     <div className="flex">
       <CaseStudySidebar />
       <main className="min-w-0 flex-1 px-5 pt-6 sm:px-8 lg:px-16 lg:pt-8">
-      {/* Mobile back link — shown only when the sidebar is hidden */}
+      {/* Mobile back link - shown only when the sidebar is hidden */}
       <Link
         href="/"
         className="mb-6 inline-flex w-fit items-center gap-2 text-[15px] font-semibold text-[#181212] underline-offset-4 transition-colors hover:underline lg:hidden"
@@ -607,7 +607,7 @@ export default function GenAiEngineeringCaseStudy() {
         <span>Back</span>
       </Link>
 
-      {/* BLOCK 1 — HERO */}
+      {/* BLOCK 1 - HERO */}
       <motion.section
         id="overview"
         className="mt-6 flex flex-col gap-10 pb-12 sm:mt-12 lg:mt-[72px] lg:pb-[100px]"
@@ -637,7 +637,7 @@ export default function GenAiEngineeringCaseStudy() {
             className="max-w-[720px] text-[18px] leading-[1.5] text-[#4a4a4a]"
           >
             How I led the UX transformation of Capgemini&apos;s Gen AI
-            Engineering Platform — from engineer&apos;s tool to platform anyone
+            Engineering Platform - from engineer&apos;s tool to platform anyone
             can use.
           </motion.p>
         </div>
@@ -670,7 +670,7 @@ export default function GenAiEngineeringCaseStudy() {
           </div>
         </motion.dl>
 
-        {/* Hero visual — animated Welcome screen with looping video slots */}
+        {/* Hero visual - animated Welcome screen with looping video slots */}
         <motion.div
           variants={fadeUp}
           transition={{ duration: 1.0, ease: EASE }}
@@ -681,7 +681,7 @@ export default function GenAiEngineeringCaseStudy() {
       </motion.section>
 
 
-      {/* BLOCK 2 — IMPACT */}
+      {/* BLOCK 2 - IMPACT */}
       {(() => {
         const stats = [
           {
@@ -692,13 +692,13 @@ export default function GenAiEngineeringCaseStudy() {
             ),
             title: "Active Users",
             description:
-              "Grew from 300 to 10,000+ active users in 3 months — from an engineers-only tool into everyday use across the organization.",
+              "Grew from 300 to 10,000+ active users in 3 months - from an engineers-only tool into everyday use across the organization.",
           },
           {
             num: "20+",
             title: "Features Shipped",
             description:
-              "Studio Management, Create Agent, AI Team, Marketplace, n8n Integration, API Key Management, Publish-as-Agent, and more — all under a single design system.",
+              "Studio Management, Create Agent, AI Team, Marketplace, n8n Integration, API Key Management, Publish-as-Agent, and more - all under a single design system.",
           },
           {
             num: "1",
@@ -755,7 +755,7 @@ export default function GenAiEngineeringCaseStudy() {
         );
       })()}
 
-      {/* BLOCK 3 — CONTEXT */}
+      {/* BLOCK 3 - CONTEXT */}
       <section id="context" className="mt-16 lg:mt-[120px] grid grid-cols-1 items-start gap-x-12 gap-y-5 lg:grid-cols-[1fr_2fr]">
         <motion.h2
           initial="hidden"
@@ -781,7 +781,7 @@ export default function GenAiEngineeringCaseStudy() {
           >
             Capgemini&apos;s Gen AI Engineering Platform started as an internal tool for
             engineers experimenting with LLMs. The redesign had to make it usable
-            for 300,000+ employees doing real work — without engineering help.
+            for 300,000+ employees doing real work - without engineering help.
           </motion.p>
 
           {/* Personas */}
@@ -791,14 +791,14 @@ export default function GenAiEngineeringCaseStudy() {
             className="flex w-full flex-col gap-5"
           >
             <figcaption className="text-[15px] italic text-[#6b6b6b]">
-              These personas guided our decisions throughout the redesign — from the non-technical
+              These personas guided our decisions throughout the redesign - from the non-technical
               employee opening the tool for the first time to the engineer who built it.
             </figcaption>
             <div className="relative w-full overflow-hidden rounded-[24px] bg-[#f8f8f8] p-4 sm:p-8 lg:p-12">
               <Tilt3D className="w-full">
                 {/* Keyline drawn here rather than baked into the export. The
                     previous JPG carried its own border at a ~4px effective
-                    radius, which rounded-[12px] clipped straight through —
+                    radius, which rounded-[12px] clipped straight through -
                     breaking the line at all four corners. This export is
                     edge-to-edge white, so CSS owns the border and the radius
                     and the arcs stay closed at any render width. */}
@@ -816,7 +816,7 @@ export default function GenAiEngineeringCaseStudy() {
         </motion.div>
       </section>
 
-      {/* BLOCK 4 — MY ROLE */}
+      {/* BLOCK 4 - MY ROLE */}
       <section id="role" className="mt-16 lg:mt-[120px] grid grid-cols-1 items-start gap-x-12 gap-y-5 lg:grid-cols-[1fr_2fr]">
         <motion.h2
           initial="hidden"
@@ -842,7 +842,7 @@ export default function GenAiEngineeringCaseStudy() {
         </motion.p>
       </section>
 
-      {/* BLOCK 5 — THE STRATEGIC PROBLEM */}
+      {/* BLOCK 5 - THE STRATEGIC PROBLEM */}
       <section id="problem" className="mt-16 flex flex-col gap-20 lg:mt-[120px]">
         <div className="grid grid-cols-1 items-start gap-x-12 gap-y-5 lg:grid-cols-[1fr_2fr]">
           <motion.h2
@@ -877,7 +877,7 @@ export default function GenAiEngineeringCaseStudy() {
           </motion.div>
         </div>
 
-        {/* "Before" animated collage — full content width */}
+        {/* "Before" animated collage - full content width */}
         <motion.figure
           initial="hidden"
           whileInView="show"
@@ -887,13 +887,13 @@ export default function GenAiEngineeringCaseStudy() {
           className="flex w-full flex-col gap-5"
         >
           <figcaption className="text-[15px] italic text-[#6b6b6b]">
-            Before — the engineering-first interface
+            Before - the engineering-first interface
           </figcaption>
           <BeforeCollage />
         </motion.figure>
       </section>
 
-      {/* BLOCK 6 — RESEARCH → PRINCIPLES */}
+      {/* BLOCK 6 - RESEARCH → PRINCIPLES */}
       <section id="research" className="pt-12 pb-12 lg:pt-[100px] lg:pb-[100px] grid grid-cols-1 items-start gap-x-12 gap-y-5 lg:grid-cols-[1fr_2fr]">
         <motion.h2
           initial="hidden"
@@ -936,12 +936,12 @@ export default function GenAiEngineeringCaseStudy() {
             {[
               {
                 insight: "Non-technical users didn’t know what to type.",
-                principle: "Lower the floor — every surface starts with examples or a template.",
+                principle: "Lower the floor - every surface starts with examples or a template.",
                 shipped: "AI Team’s pre-built specialists, Marketplace browsing",
               },
               {
                 insight: "Users configured once and lost everything.",
-                principle: "Persistent state — your work is always there when you come back.",
+                principle: "Persistent state - your work is always there when you come back.",
                 shipped: "Save Config (Studio)",
               },
               {
@@ -982,14 +982,14 @@ export default function GenAiEngineeringCaseStudy() {
             ))}
           </motion.div>
 
-          {/* Card sorting exercise — full content width */}
+          {/* Card sorting exercise - full content width */}
           <motion.figure
             variants={fadeUp}
             transition={{ duration: 0.9, ease: EASE }}
             className="flex w-full flex-col gap-5"
           >
             <figcaption className="text-[15px] italic text-[#6b6b6b]">
-              A card sorting exercise with employees across the organization — used to validate
+              A card sorting exercise with employees across the organization - used to validate
               how non-technical users expected the platform&apos;s features to be grouped and named.
             </figcaption>
             <div className="relative w-full overflow-hidden rounded-[24px] bg-[#f8f8f8] p-4 sm:p-8 lg:p-12">
@@ -999,7 +999,7 @@ export default function GenAiEngineeringCaseStudy() {
                   loading="lazy"
                   decoding="async"
                   src="/figma/GEP Card Sorting.jpg"
-                  alt="Card sorting exercise results — participants grouping Gen AI Engineering Platform features and terminology into categories that matched their mental model."
+                  alt="Card sorting exercise results - participants grouping Gen AI Engineering Platform features and terminology into categories that matched their mental model."
                   className="block h-auto w-full rounded-[12px]"
                 />
               </Tilt3D>
@@ -1008,14 +1008,14 @@ export default function GenAiEngineeringCaseStudy() {
         </motion.div>
       </section>
 
-      {/* BLOCK 7 — THE WORK */}
+      {/* BLOCK 7 - THE WORK */}
       <section id="work" className="mt-24 flex flex-col gap-20 lg:mt-[200px] lg:gap-[120px]">
-        {/* 7A — Studio Playground (hero surface) */}
+        {/* 7A - Studio Playground (hero surface) */}
         <Surface
           title="Studio Playground"
           tier="hero"
           lines={[
-            { label: "The problem:", body: "Every visit started from zero — model, parameters, prompt, knowledge base, all reset." },
+            { label: "The problem:", body: "Every visit started from zero - model, parameters, prompt, knowledge base, all reset." },
             { label: "The move:", body: "A persistent config primitive that saves your setup automatically and bridges to publishing." },
             { label: "The outcome:", body: "Studio became the most-used surface on the platform." },
           ]}
@@ -1027,27 +1027,27 @@ export default function GenAiEngineeringCaseStudy() {
                   loading="lazy"
                   decoding="async"
                 src="/figma/studio-conversation.webp"
-                alt="Studio Playground — conversation view with model selector, knowledge base, and AI response containing markdown and a code snippet"
+                alt="Studio Playground - conversation view with model selector, knowledge base, and AI response containing markdown and a code snippet"
                 className="block h-auto w-full rounded-[12px]"
               />
             </div>
           }
         />
 
-        {/* 7B — Create Agent (hero surface) */}
+        {/* 7B - Create Agent (hero surface) */}
         <Surface
           title="Create Agent"
           tier="hero"
           lines={[
             { label: "The problem:", body: "Building an agent meant facing one screen full of technical fields with no structure." },
-            { label: "The move:", body: "Three steps, each with one purpose — identity, configuration, access." },
+            { label: "The move:", body: "Three steps, each with one purpose - identity, configuration, access." },
             { label: "The outcome:", body: "Non-technical users built and shipped agents without engineering help." },
           ]}
           visuals={[]}
           customVisual={<StepCarousel steps={CREATE_AGENT_STEPS} />}
         />
 
-        {/* 7C — AI Team (supporting) */}
+        {/* 7C - AI Team (supporting) */}
         <Surface
           title="AI Team"
           tier="supporting"
@@ -1065,7 +1065,7 @@ export default function GenAiEngineeringCaseStudy() {
                   loading="lazy"
                   decoding="async"
                   src="/figma/gep-aiteam.webp"
-                  alt="AI Team — pre-built specialist agents (Naomi, Tom, Helen, Brin) shown as a browsable grid with category filters and Jenn as Daily Companion at the top."
+                  alt="AI Team - pre-built specialist agents (Naomi, Tom, Helen, Brin) shown as a browsable grid with category filters and Jenn as Daily Companion at the top."
                   className="block h-auto w-full rounded-[12px]"
                 />
               </Tilt3D>
@@ -1073,14 +1073,14 @@ export default function GenAiEngineeringCaseStudy() {
           }
         />
 
-        {/* 7D — Marketplace */}
+        {/* 7D - Marketplace */}
         <Surface
           title="Marketplace / Community"
           tier="supporting"
           lines={[
-            { label: "The problem:", body: "Teams across Capgemini were building AI work — agents, plugins, tools, full client solutions — but had no way to share, find, or build on each other’s output." },
+            { label: "The problem:", body: "Teams across Capgemini were building AI work - agents, plugins, tools, full client solutions - but had no way to share, find, or build on each other’s output." },
             { label: "The move:", body: "A central library with browsable categories, asset preview cards, and a detail page for every asset: full description, video, downloads, try-it, and direct contact with the author." },
-            { label: "The deeper move:", body: "Treat reuse as the floor, not the ceiling. The Marketplace had to support discovery, inspiration, contribution, and collaboration — not just transactional download." },
+            { label: "The deeper move:", body: "Treat reuse as the floor, not the ceiling. The Marketplace had to support discovery, inspiration, contribution, and collaboration - not just transactional download." },
             { label: "The outcome:", body: "Cross-team reuse went from accident to default. The Marketplace became the place AI work got found, extended, and built on." },
           ]}
           visuals={[]}
@@ -1092,7 +1092,7 @@ export default function GenAiEngineeringCaseStudy() {
                   loading="lazy"
                   decoding="async"
                   src="/figma/gep-marketplace.webp"
-                  alt="Marketplace — Welcome to Generative Engine Marketplace with category filters and a grid of shared resources (guides, tutorials, e-books, webinars) showing authors, ratings, and one-click adoption actions."
+                  alt="Marketplace - Welcome to Generative Engine Marketplace with category filters and a grid of shared resources (guides, tutorials, e-books, webinars) showing authors, ratings, and one-click adoption actions."
                   className="block h-auto w-full rounded-[12px]"
                 />
               </Tilt3D>
@@ -1100,13 +1100,13 @@ export default function GenAiEngineeringCaseStudy() {
           }
         />
 
-        {/* 7E — Studio Management */}
+        {/* 7E - Studio Management */}
         <Surface
           title="Studio Management"
           tier="supporting"
           lines={[
             { label: "The problem:", body: "AI costs scale unpredictably per request. Studio owners had no way to set guardrails before bills arrived." },
-            { label: "The move:", body: "A governance layer where owners set budgets, assign roles, and watch usage in real time — across users, API keys, and custom agents." },
+            { label: "The move:", body: "A governance layer where owners set budgets, assign roles, and watch usage in real time - across users, API keys, and custom agents." },
             { label: "The outcome:", body: "Studios stayed solvent. Owners shipped AI without finance pulling the plug." },
           ]}
           visuals={[]}
@@ -1114,7 +1114,7 @@ export default function GenAiEngineeringCaseStudy() {
         />
       </section>
 
-      {/* BLOCK 8 — DESIGN SYSTEM */}
+      {/* BLOCK 8 - DESIGN SYSTEM */}
       <section id="design-system" className="pt-12 pb-12 flex flex-col gap-20 lg:pt-[100px] lg:pb-[100px]">
         <div className="grid grid-cols-1 items-start gap-x-12 gap-y-5 lg:grid-cols-[1fr_2fr]">
           <motion.h2
@@ -1138,21 +1138,21 @@ export default function GenAiEngineeringCaseStudy() {
             <p>
               The platform was a zoo. Self-written components, fragments of
               three or four libraries, no shared logic underneath. Engineering
-              was stuck. Design couldn&apos;t fix it the long way — there was
+              was stuck. Design couldn&apos;t fix it the long way - there was
               no time to build a system from scratch and no room to drop the
               Capgemini brand.
             </p>
             <p>
               So I made the call. shadcn/ui as the foundation, restyled to
-              brand. The AI-specific components — Chat Input, User Prompt, and
-              the publishing flow — didn&apos;t exist in any library, so I
+              brand. The AI-specific components - Chat Input, User Prompt, and
+              the publishing flow - didn&apos;t exist in any library, so I
               designed and documented them myself.
             </p>
             <p>Fast enough to unblock the work.</p>
           </motion.div>
         </div>
 
-        {/* Component sheet — 4 specs sharing one gray container */}
+        {/* Component sheet - 4 specs sharing one gray container */}
         <motion.div
           initial="hidden"
           whileInView="show"
@@ -1162,15 +1162,15 @@ export default function GenAiEngineeringCaseStudy() {
           className="flex w-full flex-col gap-5"
         >
           <p className="text-[16px] italic leading-[1.5] text-[#4a4a4a]">
-            A small slice — <span className="font-semibold text-[#181212]">1,750+ components and variants</span> live in the design system in total.
+            A small slice - <span className="font-semibold text-[#181212]">1,750+ components and variants</span> live in the design system in total.
           </p>
           <div className="w-full rounded-[24px] bg-[#080d1f] p-6 sm:p-12">
             <div className="grid w-full grid-cols-2 gap-5 sm:gap-8 lg:grid-cols-4">
               {[
-                { src: "/figma/ds-button.webp", caption: "Button", alt: "Button component spec — Primary, Secondary, Outline, Ghost, Destructive variants across Regular / Large / Small / Mini sizes and Default / Hover & Active / Focus / Disabled states." },
-                { src: "/figma/ds-icon-button.webp", caption: "Icon Button", alt: "Icon Button component spec — Primary, Secondary, Outline, Ghost, Destructive variants across Regular / Large / Small / Mini sizes and Default / Hover & Active / Focus / Disabled states." },
-                { src: "/figma/ds-loading-button.webp", caption: "Loading Button", alt: "Loading Button component spec — Regular / Large / Small / Mini sizes across Default / Hover & Active / Focus states with embedded spinner." },
-                { src: "/figma/ds-link-button.webp", caption: "Link Button", alt: "Link Button component spec — text, underlined, and outlined link styles across multiple sizes." },
+                { src: "/figma/ds-button.webp", caption: "Button", alt: "Button component spec - Primary, Secondary, Outline, Ghost, Destructive variants across Regular / Large / Small / Mini sizes and Default / Hover & Active / Focus / Disabled states." },
+                { src: "/figma/ds-icon-button.webp", caption: "Icon Button", alt: "Icon Button component spec - Primary, Secondary, Outline, Ghost, Destructive variants across Regular / Large / Small / Mini sizes and Default / Hover & Active / Focus / Disabled states." },
+                { src: "/figma/ds-loading-button.webp", caption: "Loading Button", alt: "Loading Button component spec - Regular / Large / Small / Mini sizes across Default / Hover & Active / Focus states with embedded spinner." },
+                { src: "/figma/ds-link-button.webp", caption: "Link Button", alt: "Link Button component spec - text, underlined, and outlined link styles across multiple sizes." },
               ].map((c) => (
                 <figure key={c.caption} className="flex w-full flex-col gap-3">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -1190,7 +1190,7 @@ export default function GenAiEngineeringCaseStudy() {
           </div>
         </motion.div>
 
-        {/* Documentation page — Chat Input spec + docs page, sharing one gray container */}
+        {/* Documentation page - Chat Input spec + docs page, sharing one gray container */}
         <motion.div
           initial="hidden"
           whileInView="show"
@@ -1205,8 +1205,8 @@ export default function GenAiEngineeringCaseStudy() {
           <div className="w-full rounded-[24px] bg-[#080d1f] p-6 sm:p-12">
             <div className="grid w-full grid-cols-1 gap-8 sm:grid-cols-2">
               {[
-                { src: "/figma/ds-chat-input.webp", caption: "Chat Input — states", alt: "Chat Input component spec — Default, Incognito, Active, Image, Files, Multiple Images, and Offline states stacked vertically." },
-                { src: "/figma/ds-chat-input-docs.webp", caption: "Chat Input — documentation", alt: "Documentation page for the Chat Input component — Overview, Layout & Sizing, Actions, and Modes sections written alongside the design." },
+                { src: "/figma/ds-chat-input.webp", caption: "Chat Input - states", alt: "Chat Input component spec - Default, Incognito, Active, Image, Files, Multiple Images, and Offline states stacked vertically." },
+                { src: "/figma/ds-chat-input-docs.webp", caption: "Chat Input - documentation", alt: "Documentation page for the Chat Input component - Overview, Layout & Sizing, Actions, and Modes sections written alongside the design." },
               ].map((c) => (
                 <figure key={c.caption} className="flex w-full flex-col gap-3">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -1227,7 +1227,7 @@ export default function GenAiEngineeringCaseStudy() {
         </motion.div>
       </section>
 
-      {/* BLOCK 10 — WHAT I'D DO DIFFERENTLY */}
+      {/* BLOCK 10 - WHAT I'D DO DIFFERENTLY */}
       <section id="reflection" className="pt-12 pb-12 lg:pt-[100px] lg:pb-[100px] grid grid-cols-1 items-start gap-x-12 gap-y-5 lg:grid-cols-[1fr_2fr]">
         <motion.h2
           initial="hidden"
@@ -1253,7 +1253,7 @@ export default function GenAiEngineeringCaseStudy() {
             meant retrofitting more than I&apos;d like.
           </p>
           <p>
-            Second: I&apos;d push harder for analytics access from day one —
+            Second: I&apos;d push harder for analytics access from day one -
             directional research is fine, but measurable design decisions are
             better.
           </p>
