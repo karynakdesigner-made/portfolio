@@ -1209,15 +1209,13 @@ export default function NYTGamesCaseStudy() {
               <div className="flex flex-col gap-4 text-[18px] leading-[1.5] text-[#211B1C]">
                 <p>
                   The first screen after download decides how a new player meets
-                  the app. The team needed to choose between leading with the
-                  value of a free account and simply welcoming players into the
-                  games. Accounts matter to the business, but the product grows
-                  through daily habit - and only players build habits.
+                  the app. Both versions asked for an account. The question was
+                  whether to give a reason in the headline, or simply welcome
+                  players and ask anyway.
                 </p>
                 <p>
-                  I designed both variants. The NYT UX research team evaluated
-                  them with users, and Version A was selected. As of 2026, it
-                  remains in production.
+                  I designed both variants. The NYT UX research team tested them
+                  with users, and Version A was selected.
                 </p>
               </div>
               <div className="flex flex-wrap gap-3 pt-2">
