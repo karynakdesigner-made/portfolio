@@ -80,11 +80,11 @@ function InfoCard({
   return (
     <div className="rounded-[16px] border border-[#ececec] bg-white p-7">
       {number && (
-        <p className="mb-3 text-[14px] font-semibold text-[#6b6b6b]">
+        <p className="mb-1 text-[18px] font-semibold text-[#6b6b6b]">
           {number}
         </p>
       )}
-      <h3 className="mb-3 text-[20px] font-semibold leading-[1.3] text-[#181212]">
+      <h3 className="mb-1 text-[20px] font-semibold leading-[1.3] text-[#181212]">
         {title}
       </h3>
       <p className="text-[16px] leading-[1.55] text-[#211B1C]">{children}</p>
