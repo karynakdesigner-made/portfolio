@@ -1027,7 +1027,7 @@ export default function GenAiEngineeringCaseStudy() {
                   loading="lazy"
                   decoding="async"
                 src="/figma/studio-conversation.webp"
-                alt="Studio Playground - conversation view with model selector, knowledge base, and AI response containing markdown and a code snippet"
+                alt="Studio Playground - side-by-side model comparison: the same RAG documentation prompt answered by openai-gpt-5-nano, Claude 3.5 Haiku, and Llama 3 70B, each with its own knowledge base and model selector"
                 className="block h-auto w-full rounded-[12px]"
               />
             </div>
