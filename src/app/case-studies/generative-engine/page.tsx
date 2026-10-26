@@ -581,7 +581,7 @@ const STUDIO_MGMT_STEPS: readonly CarouselStep[] = [
   {
     src: "/figma/gep-studio-keys.webp",
     caption: "Keys",
-    alt: "Studio Management - API Keys tab showing Studio API Keys and User Keys tables with scope, budget, usage, expiry, status, and a context menu with Change budget / Regenerate key / Delete key.",
+    alt: "Studio Management - API Keys tab showing Studio API Keys and User Keys tables with scope, budget, usage bars, expiry date, and Active / Limit Reached status.",
   },
   {
     src: "/figma/gep-studio-agents.webp",
@@ -1092,7 +1092,7 @@ export default function GenAiEngineeringCaseStudy() {
                   loading="lazy"
                   decoding="async"
                   src="/figma/gep-marketplace.webp"
-                  alt="Assets Hub - Welcome to Generative Engine Assets Hub with category filters and a grid of shared resources (guides, tutorials, e-books, webinars) showing authors, ratings, and one-click adoption actions."
+                  alt="Assets Hub - Welcome to Generative Engine Assets Hub with category filters and a grid of shared assets (agents, tools, plugins, integrations, explainers) showing type, rating, author, last update, and Preview / Download actions."
                   className="block h-auto w-full rounded-[12px]"
                 />
               </Tilt3D>
