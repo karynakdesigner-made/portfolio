@@ -698,7 +698,7 @@ export default function GenAiEngineeringCaseStudy() {
             num: "20+",
             title: "Features Shipped",
             description:
-              "Studio Management, Create Agent, AI Team, Marketplace, n8n Integration, API Key Management, Publish-as-Agent, and more - all under a single design system.",
+              "Studio Management, Create Agent, AI Team, Assets Hub, n8n Integration, API Key Management, Publish-as-Agent, and more - all under a single design system.",
           },
           {
             num: "1",
@@ -937,7 +937,7 @@ export default function GenAiEngineeringCaseStudy() {
               {
                 insight: "Non-technical users didn’t know what to type.",
                 principle: "Lower the floor - every surface starts with examples or a template.",
-                shipped: "AI Team’s pre-built specialists, Marketplace browsing",
+                shipped: "AI Team’s pre-built specialists, Assets Hub browsing",
               },
               {
                 insight: "Users configured once and lost everything.",
@@ -1073,15 +1073,15 @@ export default function GenAiEngineeringCaseStudy() {
           }
         />
 
-        {/* 7D - Marketplace */}
+        {/* 7D - Assets Hub */}
         <Surface
-          title="Marketplace / Community"
+          title="Assets Hub"
           tier="supporting"
           lines={[
             { label: "The problem:", body: "Teams across Capgemini were building AI work - agents, plugins, tools, full client solutions - but had no way to share, find, or build on each other’s output." },
             { label: "The move:", body: "A central library with browsable categories, asset preview cards, and a detail page for every asset: full description, video, downloads, try-it, and direct contact with the author." },
-            { label: "The deeper move:", body: "Treat reuse as the floor, not the ceiling. The Marketplace had to support discovery, inspiration, contribution, and collaboration - not just transactional download." },
-            { label: "The outcome:", body: "Cross-team reuse went from accident to default. The Marketplace became the place AI work got found, extended, and built on." },
+            { label: "The deeper move:", body: "Treat reuse as the floor, not the ceiling. The Assets Hub had to support discovery, inspiration, contribution, and collaboration - not just transactional download." },
+            { label: "The outcome:", body: "Cross-team reuse went from accident to default. The Assets Hub became the place AI work got found, extended, and built on." },
           ]}
           visuals={[]}
           customVisual={
@@ -1092,7 +1092,7 @@ export default function GenAiEngineeringCaseStudy() {
                   loading="lazy"
                   decoding="async"
                   src="/figma/gep-marketplace.webp"
-                  alt="Marketplace - Welcome to Generative Engine Marketplace with category filters and a grid of shared resources (guides, tutorials, e-books, webinars) showing authors, ratings, and one-click adoption actions."
+                  alt="Assets Hub - Welcome to Generative Engine Assets Hub with category filters and a grid of shared resources (guides, tutorials, e-books, webinars) showing authors, ratings, and one-click adoption actions."
                   className="block h-auto w-full rounded-[12px]"
                 />
               </Tilt3D>
